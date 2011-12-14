@@ -8,15 +8,11 @@
     <name>easylunch webapp</name>
     <url>http://github.com/lang/easylunch</url>
     <dependencies>
-        <!--
         <dependency>
-            <groupId>org.mortbay.hightide</groupId>
-            <artifactId>hightide-provided-apis</artifactId>
-            <version>6.1H.24</version>
-            <type>pom</type>
-            <scope>runtime</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>3.1.0.RELEASE</version>
         </dependency>
-        -->
     </dependencies>
     <build>
         <finalName>easylunch</finalName>

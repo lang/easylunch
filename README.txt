@@ -32,3 +32,8 @@ schreiben (nur der erste mirror eintrag ist relevant):
 
 Dann http://localhost:8080 aufrufen, da sollte die EasyLunch-
 Startseite angezeigt werden.
+
+== Dokumentation
+
+Webframework:
+http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/mvc.html
