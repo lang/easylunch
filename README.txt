@@ -37,3 +37,6 @@ Startseite angezeigt werden.
 
 Webframework:
 http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/mvc.html
+
+Freemarker (Views, z.B. zum HTML-Templates):
+http://freemarker.sourceforge.net/docs/ref.html
