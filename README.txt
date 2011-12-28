@@ -31,6 +31,17 @@ schreiben (nur der erste mirror eintrag ist relevant):
 PostgreSQL-Server installieren und starten. Eine Datenbank mit Namen
 "easylunch" erstellen.
 
+Ubuntu erstellt bei Installation des postgresql Servers sowohl einen
+System-Benutzer als auch einen DB-Benutzer mit Namen "postgres". Das
+Passwort des DB-Benutzers kann folgendermaßen gesetzt werden:
+
+    $ sudo su postgres
+    $ psql
+    psql (8.4.9)
+    Geben Sie »help« für Hilfe ein.
+
+    postgres=# alter user postgres with password 'secret';
+
 datasource_template.xml nach datasource.xml kopieren und vor allem
 Benutzername und Password anpassen:
 
