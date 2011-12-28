@@ -57,7 +57,11 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
-    <!-- mybatis-spring configuration -->
+    <!-- transactions/mybatis-spring configuration -->
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
