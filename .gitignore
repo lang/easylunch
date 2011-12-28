@@ -1,3 +1,4 @@
+/target
 /aux
 /src/main/webapp/WEB-INF/datasource.xml
 .*.swp
