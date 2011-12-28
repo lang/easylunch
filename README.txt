@@ -26,6 +26,16 @@ schreiben (nur der erste mirror eintrag ist relevant):
       </mirrors>
     </settings>
 
+== Datenbank einrichten
+
+PostgreSQL-Server installieren und starten. Eine Datenbank mit Namen
+"easylunch" erstellen.
+
+datasource_template.xml nach datasource.xml kopieren und vor allem
+Benutzername und Password anpassen:
+
+    $ cp src/main/webapp/WEB-INF/datasource_template.xml src/main/webapp/WEB-INF/datasource.xml
+
 == Server starten
 
     $ mvn jetty:run
@@ -40,3 +50,6 @@ http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html
 
 Freemarker (Views, z.B. zum HTML-Templates):
 http://freemarker.sourceforge.net/docs/ref.html
+
+MyBatis (SQL-Java Mapping)
+http://code.google.com/p/mybatis/wiki/UserGuides
