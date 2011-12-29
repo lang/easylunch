@@ -42,6 +42,10 @@ Passwort des DB-Benutzers kann folgendermaßen gesetzt werden:
 
     postgres=# alter user postgres with password 'secret';
 
+Erstellen der Datenbank (als postgres user):
+
+    $ createdb easylunch
+
 datasource_template.xml nach datasource.xml kopieren und vor allem
 Benutzername und Password anpassen:
 
@@ -53,6 +57,8 @@ Benutzername und Password anpassen:
 
 Dann http://localhost:8080 aufrufen, da sollte die EasyLunch-
 Startseite angezeigt werden.
+
+Mit CTRL+C kann der Server gestoppt werden.
 
 == Dokumentation
 
