@@ -5,6 +5,10 @@
 
         <h2>Neuer Benutzer</h2>
 
+        <form method="post">
+            <#include "_form.ftl">
+        </form>
+
     </@page_main>
 
 </@standard_page>
