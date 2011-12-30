@@ -27,6 +27,7 @@
                     /spring.ftl as spring
                 </prop>
                 <prop key="auto_include">
+                    /lib/utils.ftl,
                     /lib/base_html.ftl
                 </prop>
             </props>
