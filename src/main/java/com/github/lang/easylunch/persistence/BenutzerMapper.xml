@@ -9,6 +9,10 @@
         select * from benutzer where id = #{id}
     </select>
 
+    <select id="findAll" parameterType="long" resultType="Benutzer">
+        select * from benutzer
+    </select>
+
     <insert id="save" parameterType="Benutzer" useGeneratedKeys="true" keyProperty="id">
         insert into benutzer (benutzername, password_hash, password_salt,
                               aktiv, personal_nummer, titel, vorname,

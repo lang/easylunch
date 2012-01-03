@@ -26,7 +26,7 @@ public class BenutzerFormController {
 
     @RequestMapping(value = "/benutzer/create", method = RequestMethod.POST, params = "cancel")
     public String createCancel(Model model) {
-        return "redirect:/benutzer";
+        return "redirect:/wui/benutzer";
     }
 
     @RequestMapping(value = "/benutzer/create", method = RequestMethod.POST, params = "submit")
@@ -38,7 +38,7 @@ public class BenutzerFormController {
         }
         benutzerMapper.save(benutzer);
         System.out.println("id: " + benutzer.getId());
-        return "redirect:/benutzer";
+        return "redirect:/wui/benutzer";
     }
 
 }
