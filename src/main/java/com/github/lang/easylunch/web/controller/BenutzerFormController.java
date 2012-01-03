@@ -1,5 +1,6 @@
 package com.github.lang.easylunch.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,9 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.lang.easylunch.domain.Benutzer;
+import com.github.lang.easylunch.persistence.BenutzerMapper;
 
 @Controller
 public class BenutzerFormController {
+
+    @Autowired
+    private BenutzerMapper benutzerMapper;
 
     @RequestMapping(value = "/benutzer/create", method = RequestMethod.GET)
     public String createGet(Model model) {
@@ -31,7 +36,8 @@ public class BenutzerFormController {
         if(result.hasErrors()) {
             return "benutzer/create";
         }
-        // TODO: persist benutzer
+        benutzerMapper.save(benutzer);
+        System.out.println("id: " + benutzer.getId());
         return "redirect:/benutzer";
     }
 

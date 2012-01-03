@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.lang.easylunch.persistence.BenutzerMapper">
+
+    <select id="getById" parameterType="long" resultType="Benutzer">
+        select * from benutzer where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="Benutzer" useGeneratedKeys="true" keyProperty="id">
+        insert into benutzer (benutzername, password_hash, password_salt,
+                              aktiv, personal_nummer, titel, vorname,
+                              nachname, ist_mitarbeiter,
+                              ist_verwaltung, ist_gast)
+                      values (#{benutzername}, #{passwordHash}, #{passwordSalt},
+                              #{aktiv}, #{personalNummer}, #{titel}, #{vorname},
+                              #{nachname}, #{istMitarbeiter},
+                              #{istVerwaltung}, #{istGast})
+    </insert>
+
+</mapper>
