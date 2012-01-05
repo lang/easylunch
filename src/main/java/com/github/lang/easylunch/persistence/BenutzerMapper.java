@@ -8,6 +8,8 @@ public interface BenutzerMapper {
 
     void save(Benutzer benutzer);
 
+    void update(Benutzer benutzer);
+
     Benutzer getById(Long id);
 
     List<Benutzer> findAll();

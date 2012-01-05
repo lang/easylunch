@@ -11,6 +11,7 @@
                 <th>Mitarbeiter</th>
                 <th>Verwaltung</th>
                 <th>Aktiv</th>
+                <th></th>
             </tr>
             <#list benutzerList as benutzer>
                 <tr>
@@ -31,6 +32,11 @@
                     </td>
                     <td>
                         <#if benutzer.aktiv>X</#if>
+                    </td>
+                    <td>
+                        <a href="<@app_url '/wui/benutzer/edit?id=${benutzer.id}'/>">
+                            Bearbeiten
+                        </a>
                     </td>
                 </tr>
             </#list>

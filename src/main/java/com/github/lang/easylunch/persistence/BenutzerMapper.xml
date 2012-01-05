@@ -24,4 +24,19 @@
                               #{istVerwaltung}, #{istGast})
     </insert>
 
+    <update id="update" parameterType="Benutzer">
+        update benutzer set benutzername = #{benutzername},
+                            password_hash = #{passwordHash},
+                            password_salt = #{passwordSalt},
+                            aktiv = #{aktiv},
+                            personal_nummer = #{personalNummer},
+                            titel = #{titel},
+                            vorname = #{vorname},
+                            nachname = #{nachname},
+                            ist_mitarbeiter = #{istMitarbeiter},
+                            ist_verwaltung = #{istVerwaltung},
+                            ist_gast = #{istGast}
+                        where id = #{id}
+    </update>
+
 </mapper>

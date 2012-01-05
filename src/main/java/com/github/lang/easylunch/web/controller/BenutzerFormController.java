@@ -43,4 +43,28 @@ public class BenutzerFormController {
         return "redirect:/wui/benutzer";
     }
 
+    @RequestMapping(value = "/benutzer/edit", method = RequestMethod.GET)
+    public String editGet(Model model,
+                          @RequestParam("id") Long id) {
+        Benutzer benutzer = benutzerMapper.getById(id);
+        model.addAttribute("benutzer", benutzer);
+        return "benutzer/edit";
+    }
+
+    @RequestMapping(value = "/benutzer/edit", method = RequestMethod.POST, params = "cancel")
+    public String editCancel(Model model) {
+        return "redirect:/wui/benutzer";
+    }
+
+    @RequestMapping(value = "/benutzer/edit", method = RequestMethod.POST, params = "submit")
+    public String editSubmit(Model model,
+                             @ModelAttribute @Valid Benutzer benutzer,
+                             BindingResult result) {
+        if(result.hasErrors()) {
+            return "benutzer/edit";
+        }
+        benutzerMapper.update(benutzer);
+        return "redirect:/wui/benutzer";
+    }
+
 }
