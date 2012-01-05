@@ -1,5 +1,7 @@
 package com.github.lang.easylunch.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +33,7 @@ public class BenutzerFormController {
 
     @RequestMapping(value = "/benutzer/create", method = RequestMethod.POST, params = "submit")
     public String createSubmit(Model model,
-                               @ModelAttribute Benutzer benutzer,
+                               @ModelAttribute @Valid Benutzer benutzer,
                                BindingResult result) {
         if(result.hasErrors()) {
             return "benutzer/create";

@@ -1,8 +1,11 @@
 package com.github.lang.easylunch.domain;
 
+import javax.validation.constraints.Size;
+
 public class Benutzer {
 
     private Long id;
+    @Size(min = 1, max = 255)
     private String benutzername;
     private String passwordHash;
     private String passwordSalt;
@@ -15,9 +18,13 @@ public class Benutzer {
      */
     private String passwordRepeat;
     private boolean aktiv;
+    @Size(max = 255)
     private String personalNummer;
+    @Size(max = 255)
     private String titel;
+    @Size(max = 255)
     private String vorname;
+    @Size(min = 1, max = 255)
     private String nachname;
     private boolean istMitarbeiter;
     private boolean istVerwaltung;
