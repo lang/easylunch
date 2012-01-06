@@ -10,6 +10,8 @@ public interface BenutzerMapper {
 
     void update(Benutzer benutzer);
 
+    void deleteById(Long id);
+
     Benutzer getById(Long id);
 
     List<Benutzer> findAll();

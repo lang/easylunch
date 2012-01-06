@@ -1,11 +1,11 @@
 <#macro app_url url_suffix><@spring.url url_suffix/></#macro>
 
-<#macro input_cancel>
-    <input type="submit" name="cancel" value="Abbrechen"/>
+<#macro input_cancel value="Abbrechen">
+    <input type="submit" name="cancel" value="${value?html}"/>
 </#macro>
 
-<#macro input_submit>
-    <input type="submit" name="submit" value="Übernehmen"/>
+<#macro input_submit value="Übernehmen">
+    <input type="submit" name="submit" value="${value?html}"/>
 </#macro>
 
 <#macro standard_form_item attr>
