@@ -9,5 +9,7 @@
     </settings>
     <typeAliases>
         <typeAlias alias="Benutzer" type="com.github.lang.easylunch.domain.Benutzer"/>
+        <typeAlias alias="Bild" type="com.github.lang.easylunch.domain.Bild"/>
+        <typeAlias alias="Speise" type="com.github.lang.easylunch.domain.Speise"/>
     </typeAliases>
 </configuration>
