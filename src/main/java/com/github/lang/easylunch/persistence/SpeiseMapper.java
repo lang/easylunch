@@ -10,6 +10,8 @@ public interface SpeiseMapper {
 
     void updateBasicDetails(Speise speise);
 
+    void deleteById(Long id);
+
     Speise getById(Long id);
 
     List<Speise> findAll();

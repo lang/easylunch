@@ -95,4 +95,22 @@ public class SpeiseFormController {
         return "redirect:/wui/speise";
     }
 
+    @RequestMapping(value = "/speise/delete", method = RequestMethod.GET)
+    public String deleteGet(Model model, @RequestParam("id") Long id) {
+        Speise speise = speiseMapper.getById(id);
+        model.addAttribute("speise", speise);
+        return "speise/delete";
+    }
+
+    @RequestMapping(value = "/speise/delete", method = RequestMethod.POST, params = "cancel")
+    public String deleteCancel(Model model) {
+        return "redirect:/wui/speise";
+    }
+
+    @RequestMapping(value = "/speise/delete", method = RequestMethod.POST, params = "submit")
+    public String deleteSubmit(Model model, @RequestParam("id") Long id) {
+        speiseMapper.deleteById(id);
+        return "redirect:/wui/speise";
+    }
+
 }
