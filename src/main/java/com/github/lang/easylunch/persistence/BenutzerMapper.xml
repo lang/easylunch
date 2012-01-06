@@ -10,7 +10,7 @@
     </select>
 
     <select id="findAll" parameterType="long" resultType="Benutzer">
-        select * from benutzer
+        select * from benutzer order by benutzername
     </select>
 
     <insert id="save" parameterType="Benutzer" useGeneratedKeys="true" keyProperty="id">
@@ -38,5 +38,9 @@
                             ist_gast = #{istGast}
                         where id = #{id}
     </update>
+
+    <delete id="deleteById" parameterType="long">
+        delete from Benutzer where id = #{id}
+    </delete>
 
 </mapper>

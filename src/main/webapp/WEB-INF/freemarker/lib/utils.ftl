@@ -1,11 +1,11 @@
 <#macro app_url url_suffix><@spring.url url_suffix/></#macro>
 
-<#macro input_cancel>
-    <input type="submit" name="cancel" value="Abbrechen"/>
+<#macro input_cancel value="Abbrechen">
+    <input type="submit" name="cancel" value="${value?html}"/>
 </#macro>
 
-<#macro input_submit>
-    <input type="submit" name="submit" value="Übernehmen"/>
+<#macro input_submit value="Übernehmen">
+    <input type="submit" name="submit" value="${value?html}"/>
 </#macro>
 
 <#macro standard_form_item attr>
@@ -22,7 +22,7 @@
 
 <#macro input_text label attr>
     <@standard_form_item attr>
-        <label for="${attr?html}">${label?html}:</label>
+        <label for="${spring.status.expression?html}">${label?html}:</label>
         <@spring.formInput attr/>
     </@standard_form_item>
 </#macro>
@@ -30,6 +30,6 @@
 <#macro input_checkbox label attr>
     <@standard_form_item attr>
         <@spring.formCheckbox attr/>
-        <label for="${attr?html}">${label?html}</label>
+        <label for="${spring.status.expression?html}">${label?html}</label>
     </@standard_form_item>
 </#macro>

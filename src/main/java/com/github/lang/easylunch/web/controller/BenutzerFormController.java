@@ -67,4 +67,22 @@ public class BenutzerFormController {
         return "redirect:/wui/benutzer";
     }
 
+    @RequestMapping(value = "/benutzer/delete", method = RequestMethod.GET)
+    public String deleteGet(Model model, @RequestParam("id") Long id) {
+        Benutzer benutzer = benutzerMapper.getById(id);
+        model.addAttribute("benutzer", benutzer);
+        return "benutzer/delete";
+    }
+
+    @RequestMapping(value = "/benutzer/delete", method = RequestMethod.POST, params = "cancel")
+    public String deleteCancel(Model model) {
+        return "redirect:/wui/benutzer";
+    }
+
+    @RequestMapping(value = "/benutzer/delete", method = RequestMethod.POST, params = "submit")
+    public String deleteSubmit(Model model, @RequestParam("id") Long id) {
+        benutzerMapper.deleteById(id);
+        return "redirect:/wui/benutzer";
+    }
+
 }

@@ -37,6 +37,9 @@
                         <a href="<@app_url '/wui/benutzer/edit?id=${benutzer.id}'/>">
                             Bearbeiten
                         </a>
+                        <a href="<@app_url '/wui/benutzer/delete?id=${benutzer.id}'/>">
+                            Löschen
+                        </a>
                     </td>
                 </tr>
             </#list>
