@@ -3,70 +3,74 @@
 /* layout */
 
 /* content rules */
-
-*{
+* {
 	margin: 0;
 	padding: 0;
-	font-family: Arial,Verdana,Helvetica;
+	font-family: Arial, Verdana, Helvetica;
 	font-size: 12px;
 }
-a{
-	color: black;
-	text-decoration:none;
+
+a {
+	color: #8C943e;
+	text-decoration: none;
 	font-style: italic;
-	
 }
+
 #wrapper {
 	margin: 0 auto;
 	width: 960px;
-
 }
+
 #header {
 	height: 100px;
-	background-image: url("images/reiters_header.png");
+	background-image: url('/public/images/easylunch_logo4.png');
 	background-repeat: no-repeat;
+	background-position: right;
 }
 
 #top_nav {
-	width:960px;
+	width: 960px;
 	height: 15px;
-	background-color:#F7E6CE;
+	background-color: #8C943e;
 	padding: 5px;
 	border-bottom-color: #9c9c90;
 	border-bottom: solid;
-	border-width:1px;
+	border-width: 1px;
 	
 }
+
 #top_nav li {
-	list-style-type:none;
-	display:inline;
-	margin: 5px;
+	list-style-type: none;
+	display: inline;
+	margin: 5px 10px 5px 5px;
+	
 }
 
 #top_nav a {
-	font-size: 110%;
-	font-weight:bold;
+	font-size: 105%;
+	font-weight: bold;
 	color: black;
-	text-decoration:none;
-	font-style:normal;
-	
+	text-decoration: none;
+	font-style: normal;
 }
 
 #top_nav a:active {
 	font-size: 110%;
 	color: #747474;
-	text-decoration:none;
+	text-decoration: none;
 }
 
 #top_nav a:hover {
 	color: #747474;
-	text-decoration:none;
+	text-decoration: none;
 }
 
 #main {
-	padding-top:20px;
+	padding-top: 20px;
 	padding-left: 20px;
+	color: #747474;
 }
+
 table {
 	border-color: #747474;
 	border-width: 1px;
@@ -74,90 +78,125 @@ table {
 	width: 90%;
 	padding: 10px;
 	margin: 0 auto;
-	
+	margin-bottom: 30px;
 }
 
 tr {
 	border-color: #747474;
 	border-width: 1px;
 	border-bottom-style: solid;
-	
 }
-tr:nth-child(even) 	{
+
+tr:nth-child(even) {
 	background: white;
 }
+
 tr:nth-child(odd) {
 	background: #F7E6CE;
 }
+
 tr:hover {
-	background:#D5C4AD;
+	background: #D5C4AD;
 }
+
 th {
 	font-size: 105%;
-	text-align:left;
+	text-align: left;
 	border-color: #747474;
 	border-width: 1px;
 	border-bottom-style: solid;
-	background:white;
+	background: white;
 }
 
 td {
-	font-size:95%;
-	padding:5px;
+	font-size: 95%;
+	padding: 5px;
 }
 
 h1 {
-	font-size:125%;
-	font-weight:bold;
+	font-size: 125%;
+	font-weight: bold;
 	margin-bottom: 10px;
 }
 
 h2 {
-	font-size:115%;
-	font-weight:bold;
+	font-size: 115%;
+	font-weight: bold;
 	margin-bottom: 10px;
 }
 
 h3 {
-	font-size:110%;
-	font-weight:bold;
+	font-size: 110%;
+	font-weight: bold;
 	margin-bottom: 10px;
 }
 
-
-
 a.buttonlink {
+	color: #747474;
 	border-color: #747474;
 	border-width: 1px;
 	border-style: solid;
 	background: #F7E6CE;
 	text-align: center;
-	padding: 2px;
+	padding: 3px 3px 2px 3px;
 	margin: 10px;
-	margin-top:20px;
+	margin-top: 20px;
+	font-style: normal;
+	border-color: #747474;
 }
 
 a.buttonlink:hover {
 	background: #D5C4AD;
+	color: black;
 }
 
-#neuerbenutzer {
-	
+#benutzer {
+	margin-left: 20px;
+	padding: 10px;
+}
+
+#btn {
+	color: #747474;
 	border-color: #747474;
 	border-width: 1px;
 	border-style: solid;
+	background: #F7E6CE;
+	text-align: center;
+	padding: 1px;
+	margin: 10px;
+	margin-top: 20px;
+	margin: 10px;
 }
 
-#neuerbenutzer submit {
-		border-color: #747474;
+#btn:hover {
+	background: #D5C4AD;
+	color: black;
+}
+
+#benutzer input[type=text] {
+	border-color: #9c9c90;
 	border-width: 1px;
 	border-style: solid;
+	margin-bottom: 3px;
 }
 
+#benutzer input[type=text]:hover {
+	border-color: #747474;
+}
 
+#benutzer input[type=checkbox] {
+	border-color: #9c9c90;
+	border-width: 1px;
+	border-style: solid;
+	margin-bottom: 1px;
+	color: red;
+}
+
+#benutzer label {
+	width: 120px;
+	float: left;
+}
 
 .standard_form_item .errors {
-  border: 1px solid red;
+	border: 1px solid red;
 }
-
-
