@@ -2,7 +2,7 @@
 <@standard_page>
 
     <@page_main>
-
+		<h2>Benutzer verwalten</h2>
         <table>
             <tr>
                 <th>Benutzername</th>
@@ -42,7 +42,7 @@
             </#list>
         </table>
 
-        <a href="<@app_url '/wui/benutzer/create'/>">Neuer Benutzer</a>
+        <a class="buttonlink" href="<@app_url '/wui/benutzer/create'/>">Neuer Benutzer</a>
 
     </@page_main>
 

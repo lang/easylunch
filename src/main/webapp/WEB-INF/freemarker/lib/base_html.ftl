@@ -44,8 +44,11 @@
     <#nested><#t>
     <@page_css "standard_page.css"/>
     <@page_content_body><#t>
+    	<div id="wrapper">
+        <div id="header"></div>
         <#include "standard_top_nav.ftl"/>
         <div id="main">${page_main_}</div>
+        </div>
     </@page_content_body><#t>
     <@html_page/><#t>
 </#macro>

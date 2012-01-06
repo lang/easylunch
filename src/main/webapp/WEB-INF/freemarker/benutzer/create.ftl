@@ -3,9 +3,9 @@
 
     <@page_main>
 
-        <h2>Neuer Benutzer</h2>
+        <h2>Neuer Benutzer: </h2>
 
-        <form method="post">
+        <form id="neuerbenutzer" method="post">
             <#include "_form.ftl">
         </form>
 
