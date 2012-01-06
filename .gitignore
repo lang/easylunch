@@ -3,3 +3,13 @@
 /src/main/webapp/WEB-INF/datasource.xml
 .*.swp
 Session.vim
+
+.classpath
+
+src/main/webapp/WEB-INF/freemarker/lib/utils.ftl
+
+src/main/webapp/WEB-INF/freemarker/lib/utils.ftl
+
+.project
+
+.project

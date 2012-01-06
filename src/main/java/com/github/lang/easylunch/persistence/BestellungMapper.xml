@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.lang.easylunch.persistence.BestellungMapper">
+
+    <select id="getById" parameterType="long" resultType="Bestellung">
+        select * from bestellung where id = #{id}
+    </select>
+
+    <select id="findAll" parameterType="long" resultType="Bestellung">
+        select * from bestellung order by ausgabezeitpunkt
+    </select>
+
+    <insert id="save" parameterType="Bestellung" useGeneratedKeys="true" keyProperty="id">
+        insert into bestellungen (kosumationszeitpunkt, ausgabezeitpunkt,
+        						  ausgabepreis, storniert, bestätigt, benutzer_id, speise_id)
+                      values (#{konsumationszeitpunk}, #{ausgabezeitpunkt}, #{ausgabepreis}, 
+                              #{storniert}, #{bestätigt}, #{benutzer_id}, #{speise_id})
+    </insert>
+
+    <update id="update" parameterType="Bestellung">
+        update bestellung set konsumationszeitpunk = #{konsumationszeitpunk},
+        					  ausgabezeitpunkt = #{ausgabezeitpunkt},
+        					  ausgabepreis = #{ausgabepreis},
+        					  storniert = #{storniert},
+        					  bestätigt = #{bestätigt},
+                              benutzer_id = #{benutzer_id},
+                              speise_id = #{speise_id},
+                        where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        delete from bestellung where id = #{id}
+    </delete>
+
+</mapper>
