@@ -71,4 +71,28 @@ public class SpeiseFormController {
         return "redirect:/wui/speise";
     }
 
+    @RequestMapping(value = "/speise/edit", method = RequestMethod.GET)
+    public String editGet(Model model,
+                          @RequestParam("id") Long id) {
+        Speise speise = speiseMapper.getById(id);
+        model.addAttribute("speise", speise);
+        return "speise/edit";
+    }
+
+    @RequestMapping(value = "/speise/edit", method = RequestMethod.POST, params = "cancel")
+    public String editCancel(Model model) {
+        return "redirect:/wui/speise";
+    }
+
+    @RequestMapping(value = "/speise/edit", method = RequestMethod.POST, params = "submit")
+    public String editSubmit(Model model,
+                             @ModelAttribute @Valid Speise speise,
+                             BindingResult result) {
+        if(result.hasErrors()) {
+            return "speise/edit";
+        }
+        speiseMapper.updateBasicDetails(speise);
+        return "redirect:/wui/speise";
+    }
+
 }

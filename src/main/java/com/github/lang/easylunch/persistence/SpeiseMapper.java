@@ -8,6 +8,10 @@ public interface SpeiseMapper {
 
     void save(Speise speise);
 
+    void updateBasicDetails(Speise speise);
+
+    Speise getById(Long id);
+
     List<Speise> findAll();
 
 }

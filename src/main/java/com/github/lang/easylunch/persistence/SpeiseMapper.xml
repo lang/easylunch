@@ -22,4 +22,15 @@
                             #{preis}, #{lagerstand})
     </insert>
 
+    <update id="updateBasicDetails" parameterType="Speise">
+        update speise set name = #{name},
+                          beschreibung = #{beschreibung},
+                          art = #{art},
+                          im_sortiment_ab = #{imSortimentAb},
+                          im_sortiment_bis = #{imSortimentBis},
+                          preis = #{preis},
+                          lagerstand = #{lagerstand}
+                      where id = #{id}
+    </update>
+
 </mapper>
