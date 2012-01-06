@@ -27,7 +27,6 @@ public class Speise {
     private Date imSortimentBis;
     @NotNull
     private BigDecimal preis;
-    @Size(min = 0)
     private int lagerstand;
 
     public void setId(Long id) {

@@ -1,14 +1,22 @@
 package com.github.lang.easylunch.web.controller;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +30,14 @@ public class SpeiseFormController {
 
     @Autowired
     private SpeiseMapper speiseMapper;
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(Date.class,
+            new CustomDateEditor(new SimpleDateFormat("dd.MM.yyyy"), true));
+        binder.registerCustomEditor(BigDecimal.class,
+            new CustomNumberEditor(BigDecimal.class, new DecimalFormat("0.#"), true));
+    }
 
     @ModelAttribute("artOptions")
     public List<String> artOptions() {

@@ -9,6 +9,7 @@
             <tr>
                 <th>Name</th>
                 <th>Lagerstand</th>
+                <th>Preis</th>
                 <th>Im Sortiment</th>
                 <th></th>
             </tr>
@@ -21,6 +22,9 @@
                     </td>
                     <td>
                         ${speise.lagerstand}
+                    </td>
+                    <td>
+                        € ${speise.preis}
                     </td>
                     <td>
                         ${speise.imSortimentAb?string("dd.MM.yyyy")} -
