@@ -45,8 +45,6 @@
     <@page_css "standard_page.css"/>
     <@page_content_body><#t>
         <#include "standard_top_nav.ftl"/>
-    </@page_content_body><#t>
-    <@page_content_body><#t>
         <div id="main">${page_main_}</div>
     </@page_content_body><#t>
     <@html_page/><#t>
