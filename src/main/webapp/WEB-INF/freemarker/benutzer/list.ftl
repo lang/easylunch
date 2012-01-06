@@ -11,7 +11,7 @@
                 <th>Mitarbeiter</th>
                 <th>Verwaltung</th>
                 <th>Aktiv</th>
-                <th></th>
+                <th>Aktionen</th>
             </tr>
             <#list benutzerList as benutzer>
                 <tr>

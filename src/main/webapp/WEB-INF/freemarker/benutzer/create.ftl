@@ -5,7 +5,7 @@
 
         <h2>Neuer Benutzer: </h2>
 
-        <form id="neuerbenutzer" method="post">
+        <form id="benutzer" method="post">
             <#include "_form.ftl">
         </form>
 
