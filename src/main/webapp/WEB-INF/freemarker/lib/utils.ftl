@@ -22,7 +22,7 @@
 
 <#macro input_text label attr>
     <@standard_form_item attr>
-        <label for="${attr?html}">${label?html}:</label>
+        <label for="${spring.status.expression?html}">${label?html}:</label>
         <@spring.formInput attr/>
     </@standard_form_item>
 </#macro>
@@ -30,6 +30,6 @@
 <#macro input_checkbox label attr>
     <@standard_form_item attr>
         <@spring.formCheckbox attr/>
-        <label for="${attr?html}">${label?html}</label>
+        <label for="${spring.status.expression?html}">${label?html}</label>
     </@standard_form_item>
 </#macro>
