@@ -1,0 +1,9 @@
+/* contains css for standard_page layout and general standard_page rules */
+
+/* layout */
+
+/* content rules */
+
+.standard_form_item .errors {
+  border: 1px solid red;
+}

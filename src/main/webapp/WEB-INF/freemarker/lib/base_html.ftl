@@ -14,6 +14,12 @@
     <#assign page_content_body_>${page_content_body_}<#nested></#assign>
 </#macro>
 
+<#macro page_css filename media="screen">
+    <@page_content_header>
+        <link href="<@app_url '/public/css/wui/${filename}'/>" media="${media}" rel="stylesheet" type="text/css" />
+    </@page_content_header>
+</#macro>
+
 <#macro html_page><#t>
 <!DOCTYPE html>
 <html>
@@ -36,6 +42,7 @@
 
 <#macro standard_page>
     <#nested><#t>
+    <@page_css "standard_page.css"/>
     <@page_content_body><#t>
         <#include "standard_top_nav.ftl"/>
     </@page_content_body><#t>
