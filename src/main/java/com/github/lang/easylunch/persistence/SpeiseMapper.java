@@ -6,6 +6,8 @@ import com.github.lang.easylunch.domain.Speise;
 
 public interface SpeiseMapper {
 
-    public List<Speise> findAll();
+    void save(Speise speise);
+
+    List<Speise> findAll();
 
 }

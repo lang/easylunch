@@ -1,12 +1,17 @@
 package com.github.lang.easylunch.domain;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Speise {
+
+    public static final List<String> ART_OPTIONS =
+        Arrays.asList("Vorspeise", "Hauptspeise", "Nachspeise");
 
     private Long id;
     @Size(min = 1, max = 255)
@@ -22,7 +27,7 @@ public class Speise {
     private Date imSortimentBis;
     @NotNull
     private BigDecimal preis;
-    @NotNull @Size(min = 0)
+    @Size(min = 0)
     private int lagerstand;
 
     public void setId(Long id) {

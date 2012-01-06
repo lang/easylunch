@@ -13,4 +13,13 @@
         select * from speise order by name
     </select>
 
+    <insert id="save" parameterType="Speise" useGeneratedKeys="true" keyProperty="id">
+        insert into speise (name, beschreibung, art,
+                            bild_id, im_sortiment_ab, im_sortiment_bis,
+                            preis, lagerstand)
+                    values (#{name}, #{beschreibung}, #{art},
+                            #{bildId}, #{imSortimentAb}, #{imSortimentBis},
+                            #{preis}, #{lagerstand})
+    </insert>
+
 </mapper>

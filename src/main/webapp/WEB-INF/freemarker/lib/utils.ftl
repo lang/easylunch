@@ -33,3 +33,17 @@
         <label for="${spring.status.expression?html}">${label?html}</label>
     </@standard_form_item>
 </#macro>
+
+<#macro input_textarea label attr>
+    <@standard_form_item attr>
+        <label for="${spring.status.expression?html}">${label?html}:</label>
+        <@spring.formTextarea attr/>
+    </@standard_form_item>
+</#macro>
+
+<#macro input_select label attr options>
+    <@standard_form_item attr>
+        <label for="${spring.status.expression?html}">${label?html}:</label>
+        <@spring.formSingleSelect attr options/>
+    </@standard_form_item>
+</#macro>
