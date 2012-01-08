@@ -1,5 +1,5 @@
 <#escape x as x?html>
-<#include "*/bestellungenUtils.ftl">
+<#include "bestellungenUtils.ftl">
 
 <@standard_page>
 
