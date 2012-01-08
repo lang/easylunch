@@ -13,3 +13,5 @@ src/main/webapp/WEB-INF/freemarker/lib/utils.ftl
 .project
 
 .project
+
+.DS_Store

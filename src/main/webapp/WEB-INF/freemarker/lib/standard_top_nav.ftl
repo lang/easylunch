@@ -12,6 +12,10 @@
             <#-- TODO: show only for authorized users -->
             <a href="<@app_url '/wui/benutzer'/>">Benutzer verwalten</a>
         </li>
+        <li>
+        	<#-- TODO: show only for authorized users -->
+        	<a href="<@app_url '/wui/bestellungen'/>">Bestellungen auswerten</a>
+        </li>
     </ul>
 </div>
 </#escape>
