@@ -50,6 +50,7 @@ Zum erstellen des Schemas die sql-Dateien in src/main/db/schema der
 Reihe nach ausführen. Z.b. im psql-Client:
 
     easylunch=# \i /some/path/easylunch/src/main/db/schema/000_init.sql
+    easylunch=# \i /some/path/easylunch/src/main/db/schema/001_initial_benutzer.sql
 
 datasource_template.xml nach datasource.xml kopieren und vor allem
 Benutzername und Password anpassen:

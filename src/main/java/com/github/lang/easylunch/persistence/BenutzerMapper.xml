@@ -9,6 +9,10 @@
         select * from benutzer where id = #{id}
     </select>
 
+    <select id="findByBenutzername" parameterType="String" resultType="Benutzer">
+        select * from benutzer where benutzername = #{benutzername}
+    </select>
+
     <select id="findAll" parameterType="long" resultType="Benutzer">
         select * from benutzer order by benutzername
     </select>

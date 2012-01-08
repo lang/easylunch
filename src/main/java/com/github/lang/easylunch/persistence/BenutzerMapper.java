@@ -16,4 +16,6 @@ public interface BenutzerMapper {
 
     List<Benutzer> findAll();
 
+    Benutzer findByBenutzername(String benutzername);
+
 }
