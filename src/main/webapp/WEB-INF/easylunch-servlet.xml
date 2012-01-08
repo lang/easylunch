@@ -100,6 +100,12 @@
             value="com.github.lang.easylunch.persistence.BestellungMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
+    
+    <bean id="bestellungenMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    	<property name="mapperInterface"
+    		value="com.github.lang.easylunch.persistence.BestellungenMapper"/>
+    	<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
 
     <!-- security -->
 
