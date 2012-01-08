@@ -32,4 +32,28 @@ public class BestellungenController {
         
         return "bestellungen/auswerten";
     }
+    
+    @RequestMapping(value = "/bestellungen/applyToStock", method = RequestMethod.POST)
+    public String applyToStock(Model model) {
+    	Date dateObj = new Date();
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy");
+    	
+        model.addAttribute("bestellungen", bestellungenMapper.findAllOrders());
+        model.addAttribute("speisen", bestellungenMapper.findAllMeals());
+        model.addAttribute("date", dateFormat.format(dateObj));
+        
+    	return "bestellungen/applyToStock";
+    }
+    
+    @RequestMapping(value = "/bestellungen/printPreview", method = RequestMethod.GET)
+    public String printPreview(Model model) {
+    	Date dateObj = new Date();
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy");
+    	
+        model.addAttribute("bestellungen", bestellungenMapper.findAllOrders());
+        model.addAttribute("speisen", bestellungenMapper.findAllMeals());
+        model.addAttribute("date", dateFormat.format(dateObj));
+        
+        return "bestellungen/printPreview";
+    }    
 }

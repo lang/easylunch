@@ -5,7 +5,6 @@
 
     <@page_main>
 		<h2>Bestellungsauswertung f&uuml;r ${date}</h2>
-		<form method="post" action="bestellungen/applyToStock">
         <table>
         	<@bestellungsauswertung_tableHead_clean>
         	</@bestellungsauswertung_tableHead_clean>
@@ -20,8 +19,7 @@
         </table>
         
         <div id="actions">
-    	    <a class="buttonlink" href="<@app_url '/wui/bestellungen/printPreview'/>">Druckansicht</a>
-	        <button class="buttonlink">Speisenausgabe in Lagerstand übernehmen</button>
+    	    <a class="buttonlink" href="<@app_url '/wui/bestellungen'/>">Zurück</a>
         </div>
         
     </@page_main>
