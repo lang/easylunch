@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.lang.easylunch.domain.Benutzer;
 import com.github.lang.easylunch.persistence.BenutzerMapper;
+import com.github.lang.easylunch.service.BenutzerService;
 
 @Controller
 public class BenutzerFormController {
 
     @Autowired
     private BenutzerMapper benutzerMapper;
+
+    @Autowired
+    private BenutzerService benutzerService;
 
     @RequestMapping(value = "/benutzer/create", method = RequestMethod.GET)
     public String createGet(Model model) {
@@ -82,6 +86,38 @@ public class BenutzerFormController {
     @RequestMapping(value = "/benutzer/delete", method = RequestMethod.POST, params = "submit")
     public String deleteSubmit(Model model, @RequestParam("id") Long id) {
         benutzerMapper.deleteById(id);
+        return "redirect:/wui/benutzer";
+    }
+
+    @RequestMapping(value = "/benutzer/update_password", method = RequestMethod.GET)
+    public String updatePasswordGet(Model model,
+                                    @RequestParam("id") Long id) {
+        Benutzer benutzer = benutzerMapper.getById(id);
+        model.addAttribute("benutzer", benutzer);
+        return "benutzer/update_password";
+    }
+
+    @RequestMapping(value = "/benutzer/update_password", method = RequestMethod.POST, params = "cancel")
+    public String updatePasswordCancel(Model model) {
+        return "redirect:/wui/benutzer";
+    }
+
+    @RequestMapping(value = "/benutzer/update_password", method = RequestMethod.POST, params = "submit")
+    public String updatePasswordSubmit(Model model,
+                                       @ModelAttribute Benutzer benutzer,
+                                       BindingResult result) {
+        if(!benutzer.getCleartextPassword().equals(benutzer.getCleartextPasswordRepeat())) {
+            result.rejectValue(
+                "cleartextPasswordRepeat", "benutzer.password_mismatch");
+        }
+        if(result.hasErrors()) {
+            // load the user object with all attributes
+            Benutzer pb = benutzerMapper.getById(benutzer.getId());
+            benutzer.setBenutzername(pb.getBenutzername());
+            return "benutzer/update_password";
+        }
+        benutzerService.updatePassword(
+            benutzer.getId(), benutzer.getCleartextPassword());
         return "redirect:/wui/benutzer";
     }
 

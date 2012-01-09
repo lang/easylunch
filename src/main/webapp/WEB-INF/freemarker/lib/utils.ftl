@@ -20,10 +20,10 @@
     </div>
 </#macro>
 
-<#macro input_text label attr>
+<#macro input_text label attr type="text">
     <@standard_form_item attr>
         <label for="${spring.status.expression?html}">${label?html}:</label>
-        <@spring.formInput attr/>
+        <@spring.formInput attr "" type/>
     </@standard_form_item>
 </#macro>
 
