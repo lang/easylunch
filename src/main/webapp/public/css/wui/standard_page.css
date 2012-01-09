@@ -36,14 +36,12 @@ a {
 	border-bottom-color: #9c9c90;
 	border-bottom: solid;
 	border-width: 1px;
-	
 }
 
 #top_nav li {
 	list-style-type: none;
 	display: inline;
 	margin: 5px 10px 5px 5px;
-	
 }
 
 #top_nav a {
@@ -52,12 +50,6 @@ a {
 	color: black;
 	text-decoration: none;
 	font-style: normal;
-}
-
-#top_nav a:active {
-	font-size: 110%;
-	color: #747474;
-	text-decoration: none;
 }
 
 #top_nav a:hover {
@@ -138,7 +130,7 @@ a.buttonlink {
 	border-style: solid;
 	background: #F7E6CE;
 	text-align: center;
-	padding: 3px 3px 2px 3px;
+	padding: 2px 3px 2px 3px;
 	margin: 10px;
 	margin-top: 20px;
 	font-style: normal;
@@ -155,7 +147,7 @@ a.buttonlink:hover {
 	padding: 10px;
 }
 
-#btn {
+.btn {
 	color: #747474;
 	border-color: #747474;
 	border-width: 1px;
@@ -168,31 +160,69 @@ a.buttonlink:hover {
 	margin: 10px;
 }
 
-#btn:hover {
+.btn:hover {
 	background: #D5C4AD;
 	color: black;
 }
 
-#benutzer input[type=text] {
+input[type=text] {
 	border-color: #9c9c90;
 	border-width: 1px;
 	border-style: solid;
-	margin-bottom: 3px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	height: 20px;
+	width: 200px;
 }
 
-#benutzer input[type=text]:hover {
+input[type=text]:hover {
 	border-color: #747474;
 }
 
-#benutzer input[type=checkbox] {
+textarea {
+	border-color: #9c9c90;
+	border-width: 1px;
+	border-style: solid;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	width: 200px;
+	height: 100px;
+}
+
+textarea:hover {
+	border-color: #747474;
+}
+
+select {
+	border-color: #9c9c90;
+	border-width: 1px;
+	border-style: solid;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	background-color: white;
+	height: 20px;
+	width: 200px;
+}
+
+select:hover {
+	border-color: #747474;
+	background: transparent;
+}
+
+checkbox {
 	border-color: #9c9c90;
 	border-width: 1px;
 	border-style: solid;
 	margin-bottom: 1px;
-	color: red;
+	background: transparent;
 }
 
 #benutzer label {
+	width: 120px;
+	float: left;
+}
+
+#speise label {
 	width: 120px;
 	float: left;
 }

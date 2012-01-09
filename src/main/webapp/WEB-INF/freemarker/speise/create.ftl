@@ -5,7 +5,7 @@
 
         <h2>Neue Speise: </h2>
 
-        <form method="post">
+        <form method="post" id="speise">
             <#include "_form.ftl">
         </form>
 

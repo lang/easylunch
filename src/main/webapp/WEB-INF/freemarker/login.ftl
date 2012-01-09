@@ -12,7 +12,7 @@
                 <label for="j_password">Passwort:</label>
                 <input type="password" name="j_password" value=""/>
             </div>
-            <input type="submit" value="Anmelden"/>
+            <input type="submit" class="btn" value="Anmelden"/>
         </form>
 
     </@page_main>

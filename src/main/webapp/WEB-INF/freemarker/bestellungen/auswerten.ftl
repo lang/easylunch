@@ -24,7 +24,7 @@
 		        <#if compliable>
 			        <button class="buttonlink" type="submit">Speisenausgabe in Lagerstand übernehmen</button>
 		        <#else>
-			        <button id="btn" class="buttonlink" type="submit" disabled>Speisenausgabe in Lagerstand übernehmen</button>
+			        <button class="btn" class="buttonlink" type="submit" disabled>Speisenausgabe in Lagerstand übernehmen</button>
 		        </#if>
 	        </div>
         
