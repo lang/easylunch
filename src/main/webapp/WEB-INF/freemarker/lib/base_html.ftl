@@ -1,3 +1,5 @@
+<#assign security=JspTaglibs["http://www.springframework.org/security/tags"] />
+
 <#assign page_content_header_ = ""/>
 <#assign page_content_body_ = ""/>
 <#assign page_content_title_ = "EasyLunch"/>
