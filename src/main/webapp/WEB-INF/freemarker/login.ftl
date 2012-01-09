@@ -9,7 +9,7 @@
                 <input type="text" name="j_username" value="${j_username!}"/>
             </div>
             <div class="standard_form_item">
-                <label for="j_username">Benutzername:</label>
+                <label for="j_password">Passwort:</label>
                 <input type="password" name="j_password" value=""/>
             </div>
             <input type="submit" value="Anmelden"/>
