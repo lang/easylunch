@@ -13,13 +13,11 @@
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_MITARBEITER">
             <li>
-                <#-- TODO: show only for authorized users -->
                 <a href="<@app_url '/wui/bestellungen'/>">Bestellungen auswerten</a>
             </li>
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_VERWALTUNG">
             <li>
-                <#-- TODO: show only for authorized users -->
                 <a href="<@app_url '/wui/benutzer'/>">Benutzer verwalten</a>
             </li>
         </@security.authorize>
