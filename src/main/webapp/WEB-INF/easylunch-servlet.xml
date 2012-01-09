@@ -59,9 +59,7 @@
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <!--
                 <value>classpath:validation-messages</value>
-                -->
                 <value>classpath:org/springframework/security/messages</value>
             </list>
         </property>
