@@ -48,14 +48,19 @@
     <@page_content_body><#t>
     	<div id="wrapper">
         <div id="header">
-            <@security.authorize ifAnyGranted="ROLE_USER">
+            
+        </div>
+        <#include "standard_top_nav.ftl"/>
+        <div id="main">${page_main_}</div>
+        <div id="footer">
+        <@security.authorize ifAnyGranted="ROLE_USER">
                 Angemeldet als <@security.authentication property="principal.username"/>
                 <a href="<@app_url '/j_spring_security_logout'/>">Abmelden</a>
             </@security.authorize>
         </div>
-        <#include "standard_top_nav.ftl"/>
-        <div id="main">${page_main_}</div>
+        
         </div>
+        
     </@page_content_body><#t>
     <@html_page/><#t>
 </#macro>

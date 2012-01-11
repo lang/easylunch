@@ -2,9 +2,10 @@
 <@standard_page>
 
     <@page_main>
-
+    
         <form id="login" action="<@app_url '/j_spring_security_check'/>" method="post">
             <div class="standard_form_item">
+            <h2> Willkommen bei EasyLunch</h2>
                 <label for="j_username">Benutzername:</label>
                 <input type="text" name="j_username" value="${j_username!}"/>
             </div>

@@ -22,9 +22,9 @@
 	        <div id="actions">
     		    <a class="buttonlink" href="<@app_url '/wui/bestellungen/printPreview'/>">Druckansicht</a>
 		        <#if compliable>
-			        <button class="buttonlink" type="submit">Speisenausgabe in Lagerstand übernehmen</button>
+			        <button class="btn" type="submit">Speisenausgabe in Lagerstand übernehmen</button>
 		        <#else>
-			        <button class="btn" class="buttonlink" type="submit" disabled>Speisenausgabe in Lagerstand übernehmen</button>
+			        <button class="btn"  type="submit" disabled>Speisenausgabe in Lagerstand übernehmen</button>
 		        </#if>
 	        </div>
         

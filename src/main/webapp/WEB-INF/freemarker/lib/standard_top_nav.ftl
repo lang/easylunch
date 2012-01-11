@@ -22,5 +22,9 @@
             </li>
         </@security.authorize>
     </ul>
+            <@security.authorize ifAnyGranted="ROLE_USER">
+                <a id='logout' href="<@app_url '/j_spring_security_logout'/>"><img src='/public/images/logout2black15.png' alt='Logout'/></a>
+            </@security.authorize>
+    
 </div>
 </#escape>
