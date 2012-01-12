@@ -67,7 +67,18 @@ public class BenutzerFormController {
         if(result.hasErrors()) {
             return "benutzer/edit";
         }
-        benutzerMapper.update(benutzer);
+        // copy form attributes into benutzer from db
+        Benutzer pb = benutzerMapper.getById(benutzer.getId());
+        pb.setBenutzername(benutzer.getBenutzername());
+        pb.setPersonalNummer(benutzer.getPersonalNummer());
+        pb.setTitel(benutzer.getTitel());
+        pb.setVorname(benutzer.getVorname());
+        pb.setNachname(benutzer.getNachname());
+        pb.setIstGast(benutzer.getIstGast());
+        pb.setIstMitarbeiter(benutzer.getIstMitarbeiter());
+        pb.setIstVerwaltung(benutzer.getIstVerwaltung());
+        pb.setAktiv(benutzer.getAktiv());
+        benutzerMapper.update(pb);
         return "redirect:/wui/benutzer";
     }
 
