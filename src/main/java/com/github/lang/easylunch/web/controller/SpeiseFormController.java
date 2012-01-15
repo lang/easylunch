@@ -74,7 +74,7 @@ public class SpeiseFormController {
     @RequestMapping(value = "/speise/edit", method = RequestMethod.GET)
     public String editGet(Model model,
                           @RequestParam("id") Long id) {
-        Speise speise = speiseMapper.getById(id);
+        Speise speise = speiseMapper.findById(id);
         model.addAttribute("speise", speise);
         return "speise/edit";
     }
@@ -97,7 +97,7 @@ public class SpeiseFormController {
 
     @RequestMapping(value = "/speise/delete", method = RequestMethod.GET)
     public String deleteGet(Model model, @RequestParam("id") Long id) {
-        Speise speise = speiseMapper.getById(id);
+        Speise speise = speiseMapper.findById(id);
         model.addAttribute("speise", speise);
         return "speise/delete";
     }

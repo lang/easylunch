@@ -12,7 +12,7 @@ public interface SpeiseMapper {
 
     void deleteById(Long id);
 
-    Speise getById(Long id);
+    Speise findById(Long id);
 
     List<Speise> findAll();
 
