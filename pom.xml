@@ -7,6 +7,9 @@
     <version>1.0-SNAPSHOT</version>
     <name>easylunch webapp</name>
     <url>http://github.com/lang/easylunch</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
