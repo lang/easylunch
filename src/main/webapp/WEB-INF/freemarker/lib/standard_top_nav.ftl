@@ -8,7 +8,7 @@
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_MITARBEITER">
             <li>
-                <a href="<@app_url '/wui/speise'/>">Speisen</a>
+                <a href="<@app_url '/wui/speise'/>">Speisen verwalten</a>
             </li>
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_MITARBEITER">
