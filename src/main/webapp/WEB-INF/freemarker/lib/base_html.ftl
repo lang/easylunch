@@ -53,7 +53,13 @@
         <#include "standard_top_nav.ftl"/>
         <div id="main">${page_main_}</div>
         <div id="footer">
-        <@security.authorize ifAnyGranted="ROLE_USER">
+            <div id="current_application_time">
+                ${applicationTimeService.applicationTime().getTime()?string("dd.MM.yyyy HH:mm")?html}
+                <@security.authorize ifAnyGranted="ROLE_VERWALTUNG">
+                    <a href="<@app_url '/wui/time'/>">&#x270E;</a>
+                </@security.authorize>
+            </div>
+            <@security.authorize ifAnyGranted="ROLE_USER">
                 Angemeldet als <@security.authentication property="principal.username"/>
                 <a href="<@app_url '/j_spring_security_logout'/>">Abmelden</a>
             </@security.authorize>

@@ -46,6 +46,13 @@
                 </prop>
             </props>
         </property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="applicationTimeService">
+                    <ref bean="applicationTimeService"/>
+                </entry>
+            </map>
+        </property>
     </bean>
 
     <!-- resolves freemarker views and redirect: views -->
