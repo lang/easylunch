@@ -5,6 +5,7 @@ public class Bild {
     private Long id;
     private byte[] data;
     private String filename;
+    private String contentType;
 
     public void setId(Long id) {
         this.id = id;
@@ -28,6 +29,14 @@ public class Bild {
     
     public String getFilename() {
         return filename;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    public String getContentType() {
+        return contentType;
     }
 
 }
