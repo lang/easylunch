@@ -22,10 +22,11 @@
                             #{preis}, #{lagerstand})
     </insert>
 
-    <update id="updateBasicDetails" parameterType="Speise">
+    <update id="update" parameterType="Speise">
         update speise set name = #{name},
                           beschreibung = #{beschreibung},
                           art = #{art},
+                          bild_id = #{bildId},
                           im_sortiment_ab = #{imSortimentAb},
                           im_sortiment_bis = #{imSortimentBis},
                           preis = #{preis},

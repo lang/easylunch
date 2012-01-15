@@ -105,6 +105,12 @@
     	<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
+    <bean id="bildMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.github.lang.easylunch.persistence.BildMapper"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
     <!-- security -->
 
     <sec:http auto-config='true'>
@@ -125,5 +131,9 @@
             </sec:password-encoder>
         </sec:authentication-provider>
     </sec:authentication-manager>
+
+    <!-- file upload -->
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
 
 </beans>

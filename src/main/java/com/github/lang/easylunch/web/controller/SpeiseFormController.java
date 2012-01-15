@@ -91,7 +91,9 @@ public class SpeiseFormController {
         if(result.hasErrors()) {
             return "speise/edit";
         }
-        speiseMapper.updateBasicDetails(speise);
+        Speise pSpeise = speiseMapper.findById(speise.getId());
+        copyFormProperties(speise, pSpeise);
+        speiseMapper.update(pSpeise);
         return "redirect:/wui/speise";
     }
 
@@ -111,6 +113,16 @@ public class SpeiseFormController {
     public String deleteSubmit(Model model, @RequestParam("id") Long id) {
         speiseMapper.deleteById(id);
         return "redirect:/wui/speise";
+    }
+
+    private void copyFormProperties(Speise src, Speise dst) {
+        dst.setName(src.getName());
+        dst.setBeschreibung(src.getBeschreibung());
+        dst.setArt(src.getArt());
+        dst.setImSortimentAb(src.getImSortimentAb());
+        dst.setImSortimentBis(src.getImSortimentBis());
+        dst.setPreis(src.getPreis());
+        dst.setLagerstand(src.getLagerstand());
     }
 
 }

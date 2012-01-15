@@ -8,7 +8,7 @@ public interface SpeiseMapper {
 
     void save(Speise speise);
 
-    void updateBasicDetails(Speise speise);
+    void update(Speise speise);
 
     void deleteById(Long id);
 

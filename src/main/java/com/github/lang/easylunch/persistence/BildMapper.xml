@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.lang.easylunch.persistence.BildMapper">
+
+    <insert id="save" parameterType="Bild" useGeneratedKeys="true" keyProperty="id">
+        insert into bild (data, filename, content_type)
+                  values (#{data}, #{filename}, #{contentType})
+    </insert>
+
+    <select id="findById" parameterType="long" resultType="Bild">
+        select * from bild where id = #{id}
+    </select>
+
+</mapper>

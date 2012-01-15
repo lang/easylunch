@@ -56,6 +56,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<@app_url '/wui/speise/upload_bild?id=${speise.id}'/>">
+                                Bild hochladen
+                            </a>
+                        </li>
+                        <li>
                             <a href="<@app_url '/wui/speise/delete?id=${speise.id}'/>">
                                 Löschen
                             </a>
