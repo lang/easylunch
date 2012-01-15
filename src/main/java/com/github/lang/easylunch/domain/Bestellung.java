@@ -1,14 +1,14 @@
 package com.github.lang.easylunch.domain;
 
-
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.Date;
 
 public class Bestellung {
 
     private Long id;
     private Date konsumationszeitpunkt;
     private Date ausgabezeitpunkt;
-    private double ausgabepreis;
+    private BigDecimal ausgabepreis;
     private boolean storniert;
     private boolean bestaetigt;
     private Long benutzer_id;
@@ -38,12 +38,12 @@ public class Bestellung {
     	return this.ausgabezeitpunkt;
     }
     
-    public void setAusgabepreis(double value) {
-    	this.ausgabepreis = value;
+    public void setAusgabepreis(BigDecimal ausgabepreis) {
+        this.ausgabepreis = ausgabepreis;
     }
-    
-    public double getAusgabepreis() {
-    	return this.ausgabepreis;
+
+    public BigDecimal getAusgabepreis() {
+        return ausgabepreis;
     }
     
     public void setStorniert(boolean value) {
