@@ -50,7 +50,7 @@ public class BenutzerFormController {
     @RequestMapping(value = "/benutzer/edit", method = RequestMethod.GET)
     public String editGet(Model model,
                           @RequestParam("id") Long id) {
-        Benutzer benutzer = benutzerMapper.getById(id);
+        Benutzer benutzer = benutzerMapper.findById(id);
         model.addAttribute("benutzer", benutzer);
         return "benutzer/edit";
     }
@@ -68,7 +68,7 @@ public class BenutzerFormController {
             return "benutzer/edit";
         }
         // copy form attributes into benutzer from db
-        Benutzer pb = benutzerMapper.getById(benutzer.getId());
+        Benutzer pb = benutzerMapper.findById(benutzer.getId());
         pb.setBenutzername(benutzer.getBenutzername());
         pb.setPersonalNummer(benutzer.getPersonalNummer());
         pb.setTitel(benutzer.getTitel());
@@ -84,7 +84,7 @@ public class BenutzerFormController {
 
     @RequestMapping(value = "/benutzer/delete", method = RequestMethod.GET)
     public String deleteGet(Model model, @RequestParam("id") Long id) {
-        Benutzer benutzer = benutzerMapper.getById(id);
+        Benutzer benutzer = benutzerMapper.findById(id);
         model.addAttribute("benutzer", benutzer);
         return "benutzer/delete";
     }
@@ -103,7 +103,7 @@ public class BenutzerFormController {
     @RequestMapping(value = "/benutzer/update_password", method = RequestMethod.GET)
     public String updatePasswordGet(Model model,
                                     @RequestParam("id") Long id) {
-        Benutzer benutzer = benutzerMapper.getById(id);
+        Benutzer benutzer = benutzerMapper.findById(id);
         model.addAttribute("benutzer", benutzer);
         return "benutzer/update_password";
     }
@@ -123,7 +123,7 @@ public class BenutzerFormController {
         }
         if(result.hasErrors()) {
             // load the user object with all attributes
-            Benutzer pb = benutzerMapper.getById(benutzer.getId());
+            Benutzer pb = benutzerMapper.findById(benutzer.getId());
             benutzer.setBenutzername(pb.getBenutzername());
             return "benutzer/update_password";
         }

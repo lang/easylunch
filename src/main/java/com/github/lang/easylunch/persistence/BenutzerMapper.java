@@ -12,7 +12,7 @@ public interface BenutzerMapper {
 
     void deleteById(Long id);
 
-    Benutzer getById(Long id);
+    Benutzer findById(Long id);
 
     List<Benutzer> findAll();
 

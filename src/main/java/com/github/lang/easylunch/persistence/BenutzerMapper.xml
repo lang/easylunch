@@ -5,7 +5,7 @@
 
 <mapper namespace="com.github.lang.easylunch.persistence.BenutzerMapper">
 
-    <select id="getById" parameterType="long" resultType="Benutzer">
+    <select id="findById" parameterType="long" resultType="Benutzer">
         select * from benutzer where id = #{id}
     </select>
 

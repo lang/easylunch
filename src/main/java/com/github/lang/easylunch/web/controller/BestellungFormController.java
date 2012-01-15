@@ -46,7 +46,7 @@ public class BestellungFormController {
 //    @RequestMapping(value = "/benutzer/edit", method = RequestMethod.GET)
 //    public String editGet(Model model,
 //                          @RequestParam("id") Long id) {
-//        Benutzer benutzer = benutzerMapper.getById(id);
+//        Benutzer benutzer = benutzerMapper.findById(id);
 //        model.addAttribute("benutzer", benutzer);
 //        return "benutzer/edit";
 //    }
@@ -69,7 +69,7 @@ public class BestellungFormController {
 //
 //    @RequestMapping(value = "/benutzer/delete", method = RequestMethod.GET)
 //    public String deleteGet(Model model, @RequestParam("id") Long id) {
-//        Benutzer benutzer = benutzerMapper.getById(id);
+//        Benutzer benutzer = benutzerMapper.findById(id);
 //        model.addAttribute("benutzer", benutzer);
 //        return "benutzer/delete";
 //    }

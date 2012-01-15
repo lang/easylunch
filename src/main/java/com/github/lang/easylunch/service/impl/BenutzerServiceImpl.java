@@ -32,7 +32,7 @@ public class BenutzerServiceImpl implements BenutzerService, UserDetailsService 
     }
 
     public void updatePassword(Long benutzerId, String cleartextPassword) {
-        Benutzer benutzer = benutzerMapper.getById(benutzerId);
+        Benutzer benutzer = benutzerMapper.findById(benutzerId);
         if(benutzer.getPasswordSalt() == null) {
             benutzer.setPasswordSalt(Double.toString(Math.random()));
         }
