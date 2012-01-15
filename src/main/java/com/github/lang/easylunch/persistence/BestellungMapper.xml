@@ -15,17 +15,17 @@
 
     <insert id="save" parameterType="Bestellung" useGeneratedKeys="true" keyProperty="id">
         insert into bestellungen (kosumationszeitpunkt, ausgabezeitpunkt,
-        						  ausgabepreis, storniert, bestätigt, benutzer_id, speise_id)
-                      values (#{konsumationszeitpunk}, #{ausgabezeitpunkt}, #{ausgabepreis}, 
-                              #{storniert}, #{bestätigt}, #{benutzer_id}, #{speise_id})
+                                  ausgabepreis, storniert, bestätigt, benutzer_id, speise_id)
+                          values (#{konsumationszeitpunk}, #{ausgabezeitpunkt}, #{ausgabepreis}, 
+                                  #{storniert}, #{bestätigt}, #{benutzer_id}, #{speise_id})
     </insert>
 
     <update id="update" parameterType="Bestellung">
         update bestellung set konsumationszeitpunk = #{konsumationszeitpunk},
-        					  ausgabezeitpunkt = #{ausgabezeitpunkt},
-        					  ausgabepreis = #{ausgabepreis},
-        					  storniert = #{storniert},
-        					  bestätigt = #{bestätigt},
+                              ausgabezeitpunkt = #{ausgabezeitpunkt},
+                              ausgabepreis = #{ausgabepreis},
+                              storniert = #{storniert},
+                              bestätigt = #{bestätigt},
                               benutzer_id = #{benutzer_id},
                               speise_id = #{speise_id},
                         where id = #{id}

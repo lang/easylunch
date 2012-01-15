@@ -8,9 +8,9 @@ public class Bestellung {
     private Long id;
     private Date konsumationszeitpunkt;
     private Date ausgabezeitpunkt;
-	private double ausgabepreis;
-	private boolean storniert;
-	private boolean bestaetigt;
+    private double ausgabepreis;
+    private boolean storniert;
+    private boolean bestaetigt;
     private Long benutzer_id;
     private Long speise_id;
     
