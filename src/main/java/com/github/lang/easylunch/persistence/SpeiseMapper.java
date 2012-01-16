@@ -16,4 +16,6 @@ public interface SpeiseMapper {
 
     List<Speise> findAll();
 
+    List<Speise> findAllByArt(String art);
+
 }

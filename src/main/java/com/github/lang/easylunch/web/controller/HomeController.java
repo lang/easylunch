@@ -25,7 +25,7 @@ public class HomeController {
     public String home(Model model) {
         Benutzer benutzer = benutzerService.currentBenutzer();
         if(benutzer.getIstGast()) {
-            return "redirect:/wui/bestellen";
+            return "redirect:/wui/bestellung";
         }
         return "redirect:/wui/speise";
     }

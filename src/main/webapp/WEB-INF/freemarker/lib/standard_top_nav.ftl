@@ -3,7 +3,7 @@
     <ul>
         <@security.authorize ifAnyGranted="ROLE_GAST">
             <li>
-                <a href="<@app_url '/wui/bestellen'/>">Bestellen</a>
+                <a href="<@app_url '/wui/bestellung'/>">Bestellen</a>
             </li>
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_MITARBEITER">

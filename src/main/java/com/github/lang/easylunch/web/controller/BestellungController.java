@@ -1,26 +1,57 @@
 package com.github.lang.easylunch.web.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.lang.easylunch.domain.Bestellung;
+import com.github.lang.easylunch.domain.Speise;
 import com.github.lang.easylunch.persistence.BestellungMapper;
+import com.github.lang.easylunch.persistence.SpeiseMapper;
 
 @Controller
 public class BestellungController {
 
-    @Autowired
-    private BestellungMapper bestellungenMapper;
+    private static final String SESSKEY = "vormerkListe";
 
-    @RequestMapping(value = "/bestellen", method = RequestMethod.GET)
-    public String list(Model model) {
-        model.addAttribute("bestellungen", bestellungenMapper.findAll());
-        return "bestellen/list";
+    @Autowired
+    private BestellungMapper bestellungMapper;
+
+    @Autowired
+    private SpeiseMapper speiseMapper;
+
+    private String nextSpeiseArt(HttpSession session) {
+        List<Long> vormerkListe = (List<Long>)session.getAttribute(SESSKEY);
+        if(vormerkListe != null && !vormerkListe.isEmpty()) {
+            Speise speise =
+                speiseMapper.findById(vormerkListe.get(vormerkListe.size() - 1));
+            if("Vorspeise".equals(speise.getArt())) {
+                return "Hauptspeise";
+            }
+            else if("Hauptspeise".equals(speise.getArt())) {
+                return "Nachspeise";
+            }
+        }
+        return "Vorspeise";
+    }
+
+    @RequestMapping(value = "bestellung", method = RequestMethod.GET)
+    public String bestellung(Model model,
+                             HttpSession session,
+                             @RequestParam(value = "art", required = false) String art) {
+        if(art == null) {
+            art = nextSpeiseArt(session);
+        }
+        model.addAttribute("art", art);
+        model.addAttribute("speisen", speiseMapper.findAllByArt(art));
+        return "bestellung/speisen";
     }
 
 }

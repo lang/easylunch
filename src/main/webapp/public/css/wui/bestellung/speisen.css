@@ -1,0 +1,56 @@
+.listitem.speiseitem {
+    display: inline-block;
+    width: 400px;
+    height: 140px;
+    position: relative;
+}
+.bild {
+    position: absolute;
+    left: 5px;
+    top: 20px;
+    width: 100px;
+    height: 100px;
+}
+.bild img {
+    max-height: 100px;
+    max-width: 100px;
+}
+.name {
+    position: absolute;
+    top: 5px;
+    left: 110px;
+    width: 250px;
+    height: 30px;
+    font-weight: bold;
+}
+.preis {
+    position: absolute;
+    bottom: 5px;
+    left: 110px;
+    height: 15px;
+    width: 100px;
+}
+.beschreibung {
+    position: absolute;
+    top: 40px;
+    left: 110px;
+    height: 60px;
+    width: 280px;
+}
+.bestellen {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 30px;
+    width: 150px;
+    text-align: right;
+}
+.bestellen .btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+}
