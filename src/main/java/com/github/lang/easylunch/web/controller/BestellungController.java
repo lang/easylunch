@@ -1,5 +1,7 @@
 package com.github.lang.easylunch.web.controller;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -52,6 +54,36 @@ public class BestellungController {
         model.addAttribute("art", art);
         model.addAttribute("speisen", speiseMapper.findAllByArt(art));
         return "bestellung/speisen";
+    }
+
+    @RequestMapping(value = "bestellung", method = RequestMethod.POST)
+    public String bestellungPost(Model model,
+                                 HttpSession session,
+                                 @RequestParam("id") Long id) {
+        List<Long> vormerkListe = (List<Long>)session.getAttribute(SESSKEY);
+        if(vormerkListe == null) {
+            vormerkListe = new ArrayList<Long>();
+        }
+        vormerkListe.add(id);
+        session.setAttribute(SESSKEY, vormerkListe);
+        return "redirect:/wui/bestellung/bestaetigen";
+    }
+
+    @RequestMapping(value = "bestellung/bestaetigen", method = RequestMethod.GET)
+    public String bestaetigenGet(Model model, HttpSession session) {
+        List<Speise> speisen = new ArrayList<Speise>();
+        BigDecimal summe = BigDecimal.ZERO;
+        List<Long> vormerkListe = (List<Long>)session.getAttribute(SESSKEY);
+        if(vormerkListe != null) {
+            for(Long id : vormerkListe) {
+                Speise speise = speiseMapper.findById(id);
+                speisen.add(speise);
+                summe = summe.add(speise.getPreis());
+            }
+        }
+        model.addAttribute("vorgemerkteSpeisen", speisen);
+        model.addAttribute("vorgemerkteSumme", summe);
+        return "bestellung/bestaetigen";
     }
 
 }
