@@ -5,6 +5,9 @@
             <li>
                 <a href="<@app_url '/wui/bestellung'/>">Bestellen</a>
             </li>
+            <li>
+                <a href="<@app_url '/wui/bestellung/bestaetigen'/>">Vorbestellungen</a>
+            </li>
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_MITARBEITER">
             <li>
