@@ -1,6 +1,23 @@
+#main {
+    text-align: center;
+}
+table {
+    text-align: left;
+}
+h1 {
+    text-align: left;
+    margin-top: 20px;
+}
 .summe td {
     border-top: 2px solid black;
 }
 .preis {
     text-align: right;
+}
+.summe {
+    text-align: right;
+    font-weight: bold;
+}
+#bestaetigen {
+
 }

@@ -86,4 +86,13 @@ public class BestellungController {
         return "bestellung/bestaetigen";
     }
 
+    @RequestMapping(value = "bestellung/bestaetigen/remove", method = RequestMethod.POST)
+    public String bestaetigenRemovePost(Model model, HttpSession session,
+                                        @RequestParam("id") Long id) {
+        List<Long> vormerkListe = (List<Long>)session.getAttribute(SESSKEY);
+        if(vormerkListe != null) {
+            vormerkListe.remove(id);
+        }
+        return "redirect:/wui/bestellung/bestaetigen";
+    }
 }
