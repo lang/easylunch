@@ -19,7 +19,18 @@
                     <ul>
                         <#list item.bestellungen as bestellung>
                             <li>
-                                ${bestellung.id}
+                                <div class="konsumationszeitpunkt">
+                                    ${bestellung.konsumationszeitpunkt?string("HH:mm")}
+                                </div>
+                                <div class="benutzer" title="Benutzername: ${bestellung.benutzer.benutzername}">
+                                    ${bestellung.benutzer.nachname}<#t>
+                                    <#if bestellung.benutzer.titel?has_content || bestellung.benutzer.vorname?has_content><#t>
+                                        , ${bestellung.benutzer.titel!} ${bestellung.benutzer.vorname!}<#t>
+                                    </#if>
+                                    <#if bestellung.benutzer.personalNummer?has_content>
+                                        (${bestellung.benutzer.personalNummer})
+                                    </#if>
+                                </div>
                             </li>
                         </#list>
                     </ul>

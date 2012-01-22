@@ -13,8 +13,10 @@ public class Bestellung {
     private boolean bestaetigt;
     private Long benutzerId;
     private Long speiseId;
-    // for UI
+    // not persisted
     private Speise speise;
+    // not persisted
+    private Benutzer benutzer;
     
     public void setId(Long value) {
     	this.id = value;
@@ -86,6 +88,14 @@ public class Bestellung {
 
     public Speise getSpeise() {
         return speise;
+    }
+
+    public void setBenutzer(Benutzer benutzer) {
+        this.benutzer = benutzer;
+    }
+
+    public Benutzer getBenutzer() {
+        return benutzer;
     }
 
 }

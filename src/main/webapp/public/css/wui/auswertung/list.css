@@ -27,3 +27,10 @@
     padding: 5px 5px 5px 30px;
     border-top: 1px dotted gray;
 }
+.konsumationszeitpunkt {
+    display: inline-block;
+    width: 50px;
+}
+.benutzer {
+    display: inline-block;
+}
