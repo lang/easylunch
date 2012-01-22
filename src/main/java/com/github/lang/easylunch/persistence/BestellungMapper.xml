@@ -13,21 +13,28 @@
         select * from bestellung order by ausgabezeitpunkt
     </select>
 
+    <select id="findAllByBenutzerAfterDate" parameterType="map" resultType="Bestellung">
+        select * from bestellung
+                 where benutzer_id = #{benutzerId}
+                       and konsumationszeitpunkt &gt; #{date}
+                 order by konsumationszeitpunkt
+    </select>
+
     <insert id="save" parameterType="Bestellung" useGeneratedKeys="true" keyProperty="id">
-        insert into bestellungen (kosumationszeitpunkt, ausgabezeitpunkt,
-                                  ausgabepreis, storniert, bestätigt, benutzer_id, speise_id)
-                          values (#{konsumationszeitpunk}, #{ausgabezeitpunkt}, #{ausgabepreis}, 
-                                  #{storniert}, #{bestätigt}, #{benutzer_id}, #{speise_id})
+        insert into bestellung (konsumationszeitpunkt, ausgabezeitpunkt,
+                                ausgabepreis, storniert, bestätigt, benutzer_id, speise_id)
+                        values (#{konsumationszeitpunkt}, #{ausgabezeitpunkt}, #{ausgabepreis}, 
+                                #{storniert}, #{bestaetigt}, #{benutzerId}, #{speiseId})
     </insert>
 
     <update id="update" parameterType="Bestellung">
-        update bestellung set konsumationszeitpunk = #{konsumationszeitpunk},
+        update bestellung set konsumationszeitpunkt = #{konsumationszeitpunkt},
                               ausgabezeitpunkt = #{ausgabezeitpunkt},
                               ausgabepreis = #{ausgabepreis},
                               storniert = #{storniert},
-                              bestätigt = #{bestätigt},
-                              benutzer_id = #{benutzer_id},
-                              speise_id = #{speise_id},
+                              bestätigt = #{bestaetigt},
+                              benutzer_id = #{benutzerId},
+                              speise_id = #{speiseId},
                         where id = #{id}
     </update>
 
