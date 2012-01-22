@@ -5,7 +5,7 @@
 
 <mapper namespace="com.github.lang.easylunch.persistence.BestellungMapper">
 
-    <select id="getById" parameterType="long" resultType="Bestellung">
+    <select id="findById" parameterType="long" resultType="Bestellung">
         select * from bestellung where id = #{id}
     </select>
 
@@ -34,7 +34,7 @@
                               storniert = #{storniert},
                               bestätigt = #{bestaetigt},
                               benutzer_id = #{benutzerId},
-                              speise_id = #{speiseId},
+                              speise_id = #{speiseId}
                         where id = #{id}
     </update>
 
@@ -45,6 +45,7 @@
     <select id="auswertung" parameterType="map" resultMap="auswertungResultMap">
         select s.id as sid, s.name as sname, s.lagerstand as slagerstand,
                b.id as bid, b.konsumationszeitpunkt as bkonsumationszeitpunkt,
+               b.bestätigt as bbestätigt,
                u.id as uid, u.benutzername as ubenutzername, u.nachname as unachname,
                u.titel as utitel, u.vorname as uvorname,
                u.personal_nummer as upersonal_nummer
@@ -62,6 +63,7 @@
         <collection property="bestellungen" ofType="Bestellung">
             <id property="id" column="bid"/>
             <result property="konsumationszeitpunkt" column="bkonsumationszeitpunkt"/>
+            <result property="bestaetigt" column="bbestätigt"/>
             <association property="benutzer" column="uid" javaType="Benutzer">
                 <id property="id"/>
                 <result property="benutzername" column="ubenutzername"/>

@@ -31,6 +31,16 @@
                                         (${bestellung.benutzer.personalNummer})
                                     </#if>
                                 </div>
+                                <div class="bestaetigen">
+                                    <#if bestellung.bestaetigt>
+                                        Bestätigt
+                                    <#else>
+                                        <form action="auswertung/bestellung/bestaetigen" method="post" class="bestaetigen">
+                                            <input type="hidden" name="id" value="${bestellung.id}"/>
+                                            <input type="submit" value="Bestätigen"/>
+                                        </form>
+                                    </#if>
+                                </div>
                             </li>
                         </#list>
                     </ul>

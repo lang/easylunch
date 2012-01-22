@@ -16,7 +16,7 @@ public interface BestellungMapper {
 
     void deleteById(Long id);
 
-    Bestellung getById(Long id);
+    Bestellung findById(Long id);
 
     List<Bestellung> findAll();
 

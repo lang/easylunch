@@ -133,6 +133,8 @@
         <sec:form-login login-page="/wui/login" default-target-url="/wui/home"/>
         <sec:intercept-url pattern="/wui/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <sec:intercept-url pattern="/public/**" filters="none"/>
+        <sec:intercept-url pattern="/wui/speise/**" access="ROLE_MITARBEITER" />
+        <sec:intercept-url pattern="/wui/auswertung/**" access="ROLE_MITARBEITER" />
         <sec:intercept-url pattern="/wui/benutzer/**" access="ROLE_VERWALTUNG" />
         <sec:intercept-url pattern="/**" access="ROLE_USER" />
     </sec:http>

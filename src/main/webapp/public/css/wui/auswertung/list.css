@@ -27,10 +27,26 @@
     padding: 5px 5px 5px 30px;
     border-top: 1px dotted gray;
 }
+.bestellungen ul li {
+    position: relative;
+    height: 25px;
+}
 .konsumationszeitpunkt {
     display: inline-block;
     width: 50px;
 }
 .benutzer {
     display: inline-block;
+}
+.bestaetigen {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.bestaetigen form {
+    margin: 0;
+    padding: 0;
+}
+.bestaetigen input[type=submit] {
+    margin: 0;
 }
