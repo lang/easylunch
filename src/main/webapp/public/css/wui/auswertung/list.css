@@ -1,0 +1,29 @@
+.auswertung_item {
+    border: 1px solid black;
+    margin-bottom: 5px;
+    width: 800px;
+}
+.speise_name {
+    display: inline-block;
+    width: 200px;
+    padding: 5px;
+}
+.bestellmenge {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.lagerstand {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.lagerdiff {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.bestellungen ul {
+    padding: 5px 5px 5px 30px;
+    border-top: 1px dotted gray;
+}

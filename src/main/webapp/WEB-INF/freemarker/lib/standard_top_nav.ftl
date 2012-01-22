@@ -16,7 +16,7 @@
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_MITARBEITER">
             <li>
-                <a href="<@app_url '/wui/bestellungen'/>">Bestellungen auswerten</a>
+                <a href="<@app_url '/wui/auswertung'/>">Bestellungen auswerten</a>
             </li>
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_VERWALTUNG">

@@ -12,5 +12,6 @@
         <typeAlias alias="Bild" type="com.github.lang.easylunch.domain.Bild"/>
         <typeAlias alias="Speise" type="com.github.lang.easylunch.domain.Speise"/>
         <typeAlias alias="Bestellung" type="com.github.lang.easylunch.domain.Bestellung"/>
+        <typeAlias alias="AuswertungItem" type="com.github.lang.easylunch.domain.AuswertungItem"/>
     </typeAliases>
 </configuration>

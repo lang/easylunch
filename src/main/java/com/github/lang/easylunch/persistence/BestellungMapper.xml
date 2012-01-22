@@ -42,4 +42,23 @@
         delete from bestellung where id = #{id}
     </delete>
 
+    <select id="auswertung" parameterType="map" resultMap="auswertungResultMap">
+        select s.id as sid, s.name as sname, s.lagerstand as slagerstand,
+               b.id as bid
+            from speise s right outer join bestellung b
+                     on b.speise_id = s.id
+            where konsumationszeitpunkt &gt;= #{begin}
+                  and konsumationszeitpunkt &lt; #{end}
+            order by s.name, b.benutzer_id
+    </select>
+
+    <resultMap id="auswertungResultMap" type="AuswertungItem">
+        <id property="speise.id" column="sid"/>
+        <result property="speise.name" column="sname"/>
+        <result property="speise.lagerstand" column="slagerstand"/>
+        <collection property="bestellungen" ofType="Bestellung">
+            <id property="id" column="bid"/>
+        </collection>
+    </resultMap>
+
 </mapper>

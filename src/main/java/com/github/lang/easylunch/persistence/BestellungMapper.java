@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.github.lang.easylunch.domain.AuswertungItem;
 import com.github.lang.easylunch.domain.Bestellung;
 
 public interface BestellungMapper {
@@ -22,5 +23,9 @@ public interface BestellungMapper {
     List<Bestellung> findAllByBenutzerAfterDate(
             @Param("benutzerId") Long benutzerId,
             @Param("date") Date date);
+
+    List<AuswertungItem> auswertung(
+            @Param("begin") Date begin,
+            @Param("end") Date end);
 
 }
