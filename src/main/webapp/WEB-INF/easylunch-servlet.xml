@@ -15,6 +15,15 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+        <property name="defaultLocale">
+            <bean class="java.util.Locale">
+                <constructor-arg index="0" value="de"/>
+                <constructor-arg index="1" value="at"/>
+            </bean>
+        </property>
+    </bean>
+
     <!-- we use this for JSR-303 annotation validations -->
     <mvc:annotation-driven/>
 

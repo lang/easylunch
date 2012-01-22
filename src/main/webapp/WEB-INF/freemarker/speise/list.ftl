@@ -42,7 +42,7 @@
                     ${speise.lagerstand} x
                 </div>
                 <div class="preis">
-                    € ${speise.preis}
+                    ${speise.preis?string.currency}
                 </div>
                 <div class="im_sortiment">
                     ${speise.imSortimentAb?string("dd.MM.yyyy")} -
