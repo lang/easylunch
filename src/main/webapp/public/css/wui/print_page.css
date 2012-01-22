@@ -1,0 +1,15 @@
+/* A4 has size 210 mm x 297 mm */
+@media all {
+
+    #main {
+        position: absolute;
+        top: 15mm;
+        left: 20mm;
+        width: 175mm;
+        height: 267mm;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+}

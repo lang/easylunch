@@ -24,4 +24,10 @@ public class AuswertungController {
         return "auswertung/list";
     }
 
+    @RequestMapping(value = "auswertung/print", method = RequestMethod.GET)
+    public String auswertenPrint(Model model) {
+        auswertenGet(model);
+        return "auswertung/list_print";
+    }
+
 }
