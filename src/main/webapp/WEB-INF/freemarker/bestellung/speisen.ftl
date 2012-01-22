@@ -33,7 +33,7 @@
                     ${speise.name}
                 </div>
                 <div class="preis">
-                    € ${speise.preis}
+                    ${speise.preis?string.currency}
                 </div>
                 <div class="beschreibung">
                     ${speise.beschreibung!}

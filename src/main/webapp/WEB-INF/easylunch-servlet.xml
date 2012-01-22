@@ -15,6 +15,15 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+        <property name="defaultLocale">
+            <bean class="java.util.Locale">
+                <constructor-arg index="0" value="de"/>
+                <constructor-arg index="1" value="at"/>
+            </bean>
+        </property>
+    </bean>
+
     <!-- we use this for JSR-303 annotation validations -->
     <mvc:annotation-driven/>
 
@@ -124,6 +133,8 @@
         <sec:form-login login-page="/wui/login" default-target-url="/wui/home"/>
         <sec:intercept-url pattern="/wui/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <sec:intercept-url pattern="/public/**" filters="none"/>
+        <sec:intercept-url pattern="/wui/speise/**" access="ROLE_MITARBEITER" />
+        <sec:intercept-url pattern="/wui/auswertung/**" access="ROLE_MITARBEITER" />
         <sec:intercept-url pattern="/wui/benutzer/**" access="ROLE_VERWALTUNG" />
         <sec:intercept-url pattern="/**" access="ROLE_USER" />
     </sec:http>

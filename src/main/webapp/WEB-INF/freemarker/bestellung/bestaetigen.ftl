@@ -22,13 +22,13 @@
                             </form>
                         </td>
                         <td>${speise.name}</td>
-                        <td class="preis">€ ${speise.preis?string.currency}</td>
+                        <td class="preis">${speise.preis?string.currency}</td>
                     </tr>
                 </#list>
                 <tr class="summe">
                     <td></td>
                     <td>Summe</td>
-                    <td class="preis">€ ${vorgemerkteSumme?string.currency}</td>
+                    <td class="preis">${vorgemerkteSumme?string.currency}</td>
                 </tr>
             </table>
             <form id="bestaetigen" method="post">
@@ -78,7 +78,7 @@
                                 ${bestellung.speise.name}
                             </td>
                             <td>
-                                € ${bestellung.ausgabepreis?string.currency}
+                                ${bestellung.ausgabepreis?string.currency}
                             </td>
                         </tr>
                         <#assign lastks = ks/>

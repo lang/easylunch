@@ -16,7 +16,7 @@
     <#assign page_content_body_>${page_content_body_}<#nested></#assign>
 </#macro>
 
-<#macro page_css filename media="screen">
+<#macro page_css filename media="all">
     <@page_content_header>
         <link href="<@app_url '/public/css/wui/${filename}'/>" media="${media}" rel="stylesheet" type="text/css" />
     </@page_content_header>
@@ -67,6 +67,15 @@
         
         </div>
         
+    </@page_content_body><#t>
+    <@html_page/><#t>
+</#macro>
+
+<#macro print_page>
+    <#nested><#t>
+    <@page_css "print_page.css"/>
+    <@page_content_body><#t>
+        <div id="main">${page_main_}</div>
     </@page_content_body><#t>
     <@html_page/><#t>
 </#macro>

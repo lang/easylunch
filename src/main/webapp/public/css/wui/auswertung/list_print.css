@@ -1,0 +1,31 @@
+@media all {
+
+    .auswertung_item {
+        border-top: 1px solid black;
+        margin-bottom: 5px;
+    }
+    .auswertung_item:last-child {
+        border-bottom: 1px solid black;
+    }
+    .speise_name {
+        display: inline-block;
+        width: 50mm;
+        padding: 2mm;
+    }
+    .bestellmenge {
+        display: inline-block;
+        width: 25mm;
+        text-align: right;
+    }
+    .lagerstand {
+        display: inline-block;
+        width: 25mm;
+        text-align: right;
+    }
+    .lagerdiff {
+        display: inline-block;
+        width: 25mm;
+        text-align: right;
+    }
+
+}

@@ -5,7 +5,7 @@
 
 <mapper namespace="com.github.lang.easylunch.persistence.BestellungMapper">
 
-    <select id="getById" parameterType="long" resultType="Bestellung">
+    <select id="findById" parameterType="long" resultType="Bestellung">
         select * from bestellung where id = #{id}
     </select>
 
@@ -34,7 +34,7 @@
                               storniert = #{storniert},
                               bestätigt = #{bestaetigt},
                               benutzer_id = #{benutzerId},
-                              speise_id = #{speiseId},
+                              speise_id = #{speiseId}
                         where id = #{id}
     </update>
 
@@ -44,12 +44,16 @@
 
     <select id="auswertung" parameterType="map" resultMap="auswertungResultMap">
         select s.id as sid, s.name as sname, s.lagerstand as slagerstand,
-               b.id as bid
-            from speise s right outer join bestellung b
-                     on b.speise_id = s.id
+               b.id as bid, b.konsumationszeitpunkt as bkonsumationszeitpunkt,
+               b.bestätigt as bbestätigt,
+               u.id as uid, u.benutzername as ubenutzername, u.nachname as unachname,
+               u.titel as utitel, u.vorname as uvorname,
+               u.personal_nummer as upersonal_nummer
+            from speise s right outer join bestellung b on b.speise_id = s.id
+                 inner join benutzer u on b.benutzer_id = u.id
             where konsumationszeitpunkt &gt;= #{begin}
                   and konsumationszeitpunkt &lt; #{end}
-            order by s.name, b.benutzer_id
+            order by s.name, b.konsumationszeitpunkt, u.benutzername
     </select>
 
     <resultMap id="auswertungResultMap" type="AuswertungItem">
@@ -58,6 +62,16 @@
         <result property="speise.lagerstand" column="slagerstand"/>
         <collection property="bestellungen" ofType="Bestellung">
             <id property="id" column="bid"/>
+            <result property="konsumationszeitpunkt" column="bkonsumationszeitpunkt"/>
+            <result property="bestaetigt" column="bbestätigt"/>
+            <association property="benutzer" column="uid" javaType="Benutzer">
+                <id property="id"/>
+                <result property="benutzername" column="ubenutzername"/>
+                <result property="nachname" column="unachname"/>
+                <result property="titel" column="utitel"/>
+                <result property="vorname" column="uvorname"/>
+                <result property="personalNummer" column="upersonal_nummer"/>
+            </association>
         </collection>
     </resultMap>
 
