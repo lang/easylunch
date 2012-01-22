@@ -6,18 +6,12 @@
     <@page_main>
 
         <ul id="art_options">
-            <li>
-                <a href="?art=Vorspeise">Vorspeisen</a>
-            </li>
-            <li>
-                <a href="?art=Hauptspeise">Hauptspeisen</a>
-            </li>
-            <li>
-                <a href="?art=Nachspeise">Nachspeisen</a>
-            </li>
+            <#list artOptions?keys as key>
+                <li <#if key == art>id="active_art_option"</#if>>
+                    <a href="?art=${key}">${artOptions[key]}</a>
+                </li>
+            </#list>
         </ul>
-
-        <h2>Bestellen - ${art}</h2>
 
         <#assign column_index = 0/>
 

@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -64,6 +66,11 @@ public class BestellungController {
         if(art == null) {
             art = nextSpeiseArt(session);
         }
+        Map<String, String> artOptions = new LinkedHashMap<String, String>();
+        artOptions.put("Vorspeise", "Vorspeisen");
+        artOptions.put("Hauptspeise", "Hauptspeisen");
+        artOptions.put("Nachspeise", "Nachspeisen");
+        model.addAttribute("artOptions", artOptions);
         model.addAttribute("art", art);
         model.addAttribute("speisen", speiseMapper.findAllByArt(art));
         return "bestellung/speisen";
