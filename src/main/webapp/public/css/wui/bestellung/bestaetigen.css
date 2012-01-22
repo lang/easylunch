@@ -21,3 +21,15 @@ h1 {
 #bestaetigen {
 
 }
+.weitere_speisen {
+    font-size: 130%;
+}
+#bestellungen tbody:nth-child(even) tr {
+    background: white;
+}
+#bestellungen tbody:nth-child(odd) tr {
+    background: #F7E6CE;
+}
+#bestellungen tbody:hover tr {
+    background: #D5C4AD;
+}

@@ -1,6 +1,9 @@
 package com.github.lang.easylunch.persistence;
 
+import java.util.Date;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.github.lang.easylunch.domain.Bestellung;
 
@@ -15,5 +18,9 @@ public interface BestellungMapper {
     Bestellung getById(Long id);
 
     List<Bestellung> findAll();
+
+    List<Bestellung> findAllByBenutzerAfterDate(
+            @Param("benutzerId") Long benutzerId,
+            @Param("date") Date date);
 
 }

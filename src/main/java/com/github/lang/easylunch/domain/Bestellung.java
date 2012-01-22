@@ -11,8 +11,10 @@ public class Bestellung {
     private BigDecimal ausgabepreis;
     private boolean storniert;
     private boolean bestaetigt;
-    private Long benutzer_id;
-    private Long speise_id;
+    private Long benutzerId;
+    private Long speiseId;
+    // for UI
+    private Speise speise;
     
     public void setId(Long value) {
     	this.id = value;
@@ -63,19 +65,27 @@ public class Bestellung {
     }
     
     public void setBenutzerId(Long value) {
-    	this.benutzer_id = value;
+    	this.benutzerId = value;
     }
     
     public Long getBenutzerId() {
-    	return this.benutzer_id;
+    	return this.benutzerId;
     }
     
     public void setSpeiseId(Long value) {
-    	this.speise_id = value;
+    	this.speiseId = value;
     }
     
     public Long getSpeiseId() {
-    	return this.speise_id;
+    	return this.speiseId;
+    }
+
+    public void setSpeise(Speise speise) {
+        this.speise = speise;
+    }
+
+    public Speise getSpeise() {
+        return speise;
     }
 
 }

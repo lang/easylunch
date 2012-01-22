@@ -1,7 +1,9 @@
 package com.github.lang.easylunch.web.controller;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,17 +19,28 @@ import com.github.lang.easylunch.domain.Bestellung;
 import com.github.lang.easylunch.domain.Speise;
 import com.github.lang.easylunch.persistence.BestellungMapper;
 import com.github.lang.easylunch.persistence.SpeiseMapper;
+import com.github.lang.easylunch.service.ApplicationTimeService;
+import com.github.lang.easylunch.service.BenutzerService;
 
 @Controller
 public class BestellungController {
 
     private static final String SESSKEY = "vormerkListe";
 
+    private static final SimpleDateFormat DATE_FORMAT =
+        new SimpleDateFormat("E, dd.MM.yyyy");
+
     @Autowired
     private BestellungMapper bestellungMapper;
 
     @Autowired
     private SpeiseMapper speiseMapper;
+
+    @Autowired
+    private ApplicationTimeService applicationTimeService;
+
+    @Autowired
+    private BenutzerService benutzerService;
 
     private String nextSpeiseArt(HttpSession session) {
         List<Long> vormerkListe = (List<Long>)session.getAttribute(SESSKEY);
@@ -81,9 +94,51 @@ public class BestellungController {
                 summe = summe.add(speise.getPreis());
             }
         }
+
+        List<String> dateOptions = new ArrayList<String>(14);
+        Calendar cal = Calendar.getInstance();
+        for(int i = 0; i < 14; i++) {
+            dateOptions.add(DATE_FORMAT.format(cal.getTime()));
+            cal.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        List<String> timeOptions = new ArrayList<String>(10);
+        for(int i = 0; i < 5; i++) {
+            timeOptions.add("" + (12 + i) + ":00");
+            timeOptions.add("" + (12 + i) + ":30");
+        }
+
         model.addAttribute("vorgemerkteSpeisen", speisen);
         model.addAttribute("vorgemerkteSumme", summe);
+        model.addAttribute("dateOptions", dateOptions);
+        model.addAttribute("timeOptions", timeOptions);
+        model.addAttribute("bestellungen",
+            setSpeisen(bestellungMapper.findAllByBenutzerAfterDate(
+                benutzerService.currentBenutzer().getId(),
+                applicationTimeService.applicationTime().getTime())));
         return "bestellung/bestaetigen";
+    }
+
+    @RequestMapping(value = "bestellung/bestaetigen", method = RequestMethod.POST)
+    public String bestaetigenPost(Model model, HttpSession session,
+                                  @RequestParam("date") String dateStr,
+                                  @RequestParam("time") String timeStr) throws Exception {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(DATE_FORMAT.parse(dateStr));
+        String[] timeParts = timeStr.split(":");
+        cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeParts[0]));
+        cal.set(Calendar.MINUTE, Integer.parseInt(timeParts[1]));
+        for(Long speiseId : (List<Long>)session.getAttribute(SESSKEY)) {
+            Speise speise = speiseMapper.findById(speiseId);
+            Bestellung bestellung = new Bestellung();
+            bestellung.setKonsumationszeitpunkt(cal.getTime());
+            bestellung.setAusgabepreis(speise.getPreis());
+            bestellung.setBenutzerId(benutzerService.currentBenutzer().getId());
+            bestellung.setSpeiseId(speiseId);
+            bestellungMapper.save(bestellung);
+        }
+        session.setAttribute(SESSKEY, new ArrayList<Speise>());
+        return "redirect:/wui/bestellung/bestaetigen";
     }
 
     @RequestMapping(value = "bestellung/bestaetigen/remove", method = RequestMethod.POST)
@@ -95,4 +150,12 @@ public class BestellungController {
         }
         return "redirect:/wui/bestellung/bestaetigen";
     }
+
+    private List<Bestellung> setSpeisen(List<Bestellung> bestellungen) {
+        for(Bestellung bestellung : bestellungen) {
+            bestellung.setSpeise(speiseMapper.findById(bestellung.getSpeiseId()));
+        }
+        return bestellungen;
+    }
+
 }
