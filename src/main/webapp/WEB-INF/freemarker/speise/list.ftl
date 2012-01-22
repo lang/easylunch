@@ -7,25 +7,7 @@
         <br/>
         <h2>Speisen verwalten</h2>
         <a class="buttonlink" href="<@app_url '/wui/speise/create'/>">Neue Speise</a>
-
-        <div class="listitem headitem speiseitem">
-            <div class="bild">
-                Bild
-            </div>
-            <div class="name">
-                Name
-            </div>
-            <div class="lagerstand">
-                Lagerstand
-            </div>
-            <div class="preis">
-                Preis
-            </div>
-            <div class="im_sortiment">
-                Im Sortiment
-            </div>
-        </div>
-
+        <div id="speisenliste">
         <#list speisen as speise>
             <div class="listitem speiseitem">
                 <div class="bild">
@@ -40,12 +22,15 @@
                     </a>
                 </div>
                 <div class="lagerstand">
+                <h4>Lagerstand:</h4> 
                     ${speise.lagerstand} x
                 </div>
                 <div class="preis">
+                   <h4>Preis:  </h4>
                     ${speise.preis?string.currency}
                 </div>
                 <div class="im_sortiment">
+                <h4>Im Sortiment:  </h4>
                     ${speise.imSortimentAb?string("dd.MM.yyyy")} -
                     ${speise.imSortimentBis?string("dd.MM.yyyy")}
                 </div>
@@ -70,6 +55,7 @@
                 </div>
             </div>
         </#list>
+        </div>
 
         
 

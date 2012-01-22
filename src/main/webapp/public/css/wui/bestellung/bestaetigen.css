@@ -21,6 +21,24 @@ h1 {
 #bestaetigen {
 
 }
+input[type=submit] {
+	color: black;
+    border-color: #747474;
+    border-width: 1px;
+    border-style: solid;
+    background: #F7E6CE;
+    text-align: center;
+    margin: 10px;
+    margin-top: 20px;
+    margin: 10px;
+    height: 24px;
+    padding: 2px 4px 4px 4px;
+}
+input[type=submit]:hover {
+    background: #D5C4AD;
+    color: black;
+}
+
 .weitere_speisen {
     font-size: 130%;
 }
@@ -32,4 +50,13 @@ h1 {
 }
 #bestellungen tbody:hover tr {
     background: #D5C4AD;
+}
+
+#vorgemerkt input[type=submit] {
+	margin:0px;
+}
+
+select:hover {
+    border-color: #747474;
+    background: transparent;
 }

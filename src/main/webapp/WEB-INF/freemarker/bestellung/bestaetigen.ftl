@@ -7,7 +7,7 @@
 
         <h1>Vorgemerkt</h1>
         <#if vorgemerkteSpeisen?has_content>
-            <table>
+            <table id="vorgemerkt">
                 <tr>
                     <th></th>
                     <th>Speise</th>

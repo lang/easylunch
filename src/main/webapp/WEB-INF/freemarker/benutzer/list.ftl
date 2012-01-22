@@ -35,13 +35,13 @@
                     </td>
                     <td>
                         <a href="<@app_url '/wui/benutzer/edit?id=${benutzer.id}'/>">
-                            Bearbeiten
+                            Bearbeiten |
                         </a>
                         <a href="<@app_url '/wui/benutzer/update_password?id=${benutzer.id}'/>">
                             <#if benutzer.passwordHash?has_content>
-                                Passwort ändern
+                                Passwort ändern |
                             <#else>
-                                Passwort setzen
+                                Passwort setzen |
                             </#if>
                         </a>
                         <a href="<@app_url '/wui/benutzer/delete?id=${benutzer.id}'/>">

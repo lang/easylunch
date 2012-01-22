@@ -15,6 +15,9 @@ a {
 	text-decoration: none;
 	font-style: italic;
 }
+a:hover {
+	color: black;
+}
 
 #wrapper {
 	margin: 0 auto;

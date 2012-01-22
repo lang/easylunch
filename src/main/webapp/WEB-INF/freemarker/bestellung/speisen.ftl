@@ -33,6 +33,7 @@
                     ${speise.name}
                 </div>
                 <div class="preis">
+                <h4>Preis:</h4>
                     ${speise.preis?string.currency}
                 </div>
                 <div class="beschreibung">
