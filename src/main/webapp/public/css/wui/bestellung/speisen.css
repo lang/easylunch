@@ -66,3 +66,12 @@
 h4 {
     float: left;
 }
+
+#art_options li {
+    list-style-type: none;
+    display: inline;
+}
+
+#active_art_option {
+    font-weight: bold;
+}
