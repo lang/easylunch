@@ -4,8 +4,9 @@
     <@page_css "speise/list.css"/>
 
     <@page_main>
-
+        <br/>
         <h2>Speisen verwalten</h2>
+        <a class="buttonlink" href="<@app_url '/wui/speise/create'/>">Neue Speise</a>
 
         <div class="listitem headitem speiseitem">
             <div class="bild">
@@ -70,7 +71,7 @@
             </div>
         </#list>
 
-        <a class="buttonlink" href="<@app_url '/wui/speise/create'/>">Neue Speise</a>
+        
 
     </@page_main>
 
