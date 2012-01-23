@@ -43,4 +43,12 @@ public class AuswertungController {
         return "redirect:/wui/auswertung";
     }
 
+    @RequestMapping(value = "auswertung/bestellung/stornieren", method = RequestMethod.POST)
+    public String auswertungBestellungStornieren(@RequestParam("id") Long id) {
+        Bestellung bestellung = bestellungMapper.findById(id);
+        bestellung.setStorniert(true);
+        bestellungMapper.update(bestellung);
+        return "redirect:/wui/auswertung";
+    }
+
 }

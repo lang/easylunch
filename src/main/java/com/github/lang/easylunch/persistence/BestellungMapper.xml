@@ -45,7 +45,7 @@
     <select id="auswertung" parameterType="map" resultMap="auswertungResultMap">
         select s.id as sid, s.name as sname, s.lagerstand as slagerstand,
                b.id as bid, b.konsumationszeitpunkt as bkonsumationszeitpunkt,
-               b.bestaetigt as bbestaetigt,
+               b.bestaetigt as bbestaetigt, b.storniert as bstorniert,
                u.id as uid, u.benutzername as ubenutzername, u.nachname as unachname,
                u.titel as utitel, u.vorname as uvorname,
                u.personal_nummer as upersonal_nummer
@@ -64,6 +64,7 @@
             <id property="id" column="bid"/>
             <result property="konsumationszeitpunkt" column="bkonsumationszeitpunkt"/>
             <result property="bestaetigt" column="bbestaetigt"/>
+            <result property="storniert" column="bstorniert"/>
             <association property="benutzer" column="uid" javaType="Benutzer">
                 <id property="id"/>
                 <result property="benutzername" column="ubenutzername"/>

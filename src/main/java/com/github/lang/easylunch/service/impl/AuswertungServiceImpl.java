@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.lang.easylunch.domain.AuswertungItem;
+import com.github.lang.easylunch.domain.Bestellung;
 import com.github.lang.easylunch.persistence.BestellungMapper;
 import com.github.lang.easylunch.service.ApplicationTimeService;
 import com.github.lang.easylunch.service.AuswertungService;
@@ -30,9 +31,14 @@ public class AuswertungServiceImpl implements AuswertungService {
         Date end = cal.getTime();
         List<AuswertungItem> items = bestellungMapper.auswertung(begin, end);
         for(AuswertungItem item : items) {
-            item.setLagerdiff(
-                item.getSpeise().getLagerstand() -
-                    item.getBestellungen().size());
+            int count = 0;
+            for(Bestellung bestellung : item.getBestellungen()) {
+                if(!bestellung.getStorniert()) {
+                    count++;
+                }
+            }
+            item.setCount(count);
+            item.setLagerdiff(item.getSpeise().getLagerstand() - count);
         }
         return items;
     }
