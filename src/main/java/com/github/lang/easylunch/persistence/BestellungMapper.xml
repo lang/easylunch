@@ -17,7 +17,7 @@
         select * from bestellung
                  where benutzer_id = #{benutzerId}
                        and konsumationszeitpunkt &gt; #{date}
-                 order by konsumationszeitpunkt
+                 order by konsumationszeitpunkt, ausgabepreis
     </select>
 
     <insert id="save" parameterType="Bestellung" useGeneratedKeys="true" keyProperty="id">

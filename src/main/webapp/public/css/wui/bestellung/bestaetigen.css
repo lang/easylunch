@@ -51,7 +51,13 @@ input[type=submit]:hover {
 #bestellungen tbody:hover tr {
     background: #D5C4AD;
 }
-
+#bestellungen form {
+    margin: 0;
+    padding: 0;
+}
+#bestellungen input[type=submit] {
+    margin: 0;
+}
 #vorgemerkt input[type=submit] {
 	margin:0px;
 }

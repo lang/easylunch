@@ -158,6 +158,17 @@ public class BestellungController {
         return "redirect:/wui/bestellung/bestaetigen";
     }
 
+    @RequestMapping(value = "bestellung/bestaetigen/stornieren", method = RequestMethod.POST)
+    public String bestaetigenStornieren(@RequestParam("id") Long id) {
+        Bestellung bestellung = bestellungMapper.findById(id);
+        if(bestellung.getBenutzerId().equals(
+              benutzerService.currentBenutzer().getId())) {
+            bestellung.setStorniert(true);
+            bestellungMapper.update(bestellung);
+        }
+        return "redirect:/wui/bestellung/bestaetigen";
+    }
+
     private List<Bestellung> setSpeisen(List<Bestellung> bestellungen) {
         for(Bestellung bestellung : bestellungen) {
             bestellung.setSpeise(speiseMapper.findById(bestellung.getSpeiseId()));
