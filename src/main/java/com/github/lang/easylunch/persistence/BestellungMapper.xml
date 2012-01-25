@@ -17,12 +17,20 @@
         select * from bestellung
                  where benutzer_id = #{benutzerId}
                        and konsumationszeitpunkt &gt; #{date}
-                 order by konsumationszeitpunkt
+                 order by konsumationszeitpunkt, ausgabepreis
+    </select>
+
+    <select id="findAllByBenutzerAndDateRange" parameterType="map" resultType="Bestellung">
+        select * from bestellung
+                 where benutzer_id = #{benutzerId}
+                       and konsumationszeitpunkt &gt;= #{begin}
+                       and konsumationszeitpunkt &lt; #{end}
+                 order by konsumationszeitpunkt, ausgabepreis
     </select>
 
     <insert id="save" parameterType="Bestellung" useGeneratedKeys="true" keyProperty="id">
         insert into bestellung (konsumationszeitpunkt, ausgabezeitpunkt,
-                                ausgabepreis, storniert, bestätigt, benutzer_id, speise_id)
+                                ausgabepreis, storniert, bestaetigt, benutzer_id, speise_id)
                         values (#{konsumationszeitpunkt}, #{ausgabezeitpunkt}, #{ausgabepreis}, 
                                 #{storniert}, #{bestaetigt}, #{benutzerId}, #{speiseId})
     </insert>
@@ -32,7 +40,7 @@
                               ausgabezeitpunkt = #{ausgabezeitpunkt},
                               ausgabepreis = #{ausgabepreis},
                               storniert = #{storniert},
-                              bestätigt = #{bestaetigt},
+                              bestaetigt = #{bestaetigt},
                               benutzer_id = #{benutzerId},
                               speise_id = #{speiseId}
                         where id = #{id}
@@ -45,7 +53,7 @@
     <select id="auswertung" parameterType="map" resultMap="auswertungResultMap">
         select s.id as sid, s.name as sname, s.lagerstand as slagerstand,
                b.id as bid, b.konsumationszeitpunkt as bkonsumationszeitpunkt,
-               b.bestätigt as bbestätigt,
+               b.bestaetigt as bbestaetigt, b.storniert as bstorniert,
                u.id as uid, u.benutzername as ubenutzername, u.nachname as unachname,
                u.titel as utitel, u.vorname as uvorname,
                u.personal_nummer as upersonal_nummer
@@ -63,7 +71,8 @@
         <collection property="bestellungen" ofType="Bestellung">
             <id property="id" column="bid"/>
             <result property="konsumationszeitpunkt" column="bkonsumationszeitpunkt"/>
-            <result property="bestaetigt" column="bbestätigt"/>
+            <result property="bestaetigt" column="bbestaetigt"/>
+            <result property="storniert" column="bstorniert"/>
             <association property="benutzer" column="uid" javaType="Benutzer">
                 <id property="id"/>
                 <result property="benutzername" column="ubenutzername"/>

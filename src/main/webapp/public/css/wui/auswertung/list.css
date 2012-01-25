@@ -3,6 +3,14 @@
     margin-bottom: 5px;
     width: 800px;
 }
+.auswertung_item form {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+.auswertung_item input[type=submit] {
+    margin: 0;
+}
 .speise_name {
     display: inline-block;
     width: 200px;
@@ -29,7 +37,7 @@
 }
 .bestellungen ul li {
     position: relative;
-    height: 25px;
+    min-height: 25px;
 }
 .konsumationszeitpunkt {
     display: inline-block;
@@ -38,15 +46,17 @@
 .benutzer {
     display: inline-block;
 }
-.bestaetigen {
+.bcontrols {
     position: absolute;
     top: 0;
     right: 0;
+    text-align: center;
 }
-.bestaetigen form {
-    margin: 0;
-    padding: 0;
+.bestaetigen {
+    display: inline-block;
+    width: 80px;
 }
-.bestaetigen input[type=submit] {
-    margin: 0;
+.stornieren {
+    display: inline-block;
+    width: 90px;
 }

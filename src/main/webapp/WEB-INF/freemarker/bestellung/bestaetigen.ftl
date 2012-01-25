@@ -80,6 +80,21 @@
                             <td>
                                 ${bestellung.ausgabepreis?string.currency}
                             </td>
+                            <td>
+                                <#if bestellung.bestaetigt>
+                                    Bestätigt
+                                </#if>
+                            </td>
+                            <td>
+                                <#if bestellung.storniert>
+                                    Storniert
+                                <#else>
+                                    <form action="bestaetigen/stornieren" method="post">
+                                        <input type="hidden" name="id" value="${bestellung.id}"/>
+                                        <input type="submit" value="Stornieren"/>
+                                    </form>
+                                </#if>
+                            </td>
                         </tr>
                         <#assign lastks = ks/>
                     </#list>

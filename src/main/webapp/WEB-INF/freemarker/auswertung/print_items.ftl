@@ -6,7 +6,7 @@
                 ${item.speise.name}
             </div>
             <div class="bestellmenge">
-                ${item.bestellungen?size}
+                ${item.count}
             </div>
             <div class="lagerstand">
                 ${item.speise.lagerstand}
@@ -31,15 +31,27 @@
                                         (${bestellung.benutzer.personalNummer})
                                     </#if>
                                 </div>
-                                <div class="bestaetigen">
-                                    <#if bestellung.bestaetigt>
-                                        Bestätigt
-                                    <#else>
-                                        <form action="auswertung/bestellung/bestaetigen" method="post" class="bestaetigen">
-                                            <input type="hidden" name="id" value="${bestellung.id}"/>
-                                            <input type="submit" value="Bestätigen"/>
-                                        </form>
-                                    </#if>
+                                <div class="bcontrols">
+                                    <div class="bestaetigen">
+                                        <#if bestellung.bestaetigt>
+                                            Bestätigt
+                                        <#elseif !bestellung.storniert>
+                                            <form action="auswertung/bestellung/bestaetigen" method="post" class="bestaetigen">
+                                                <input type="hidden" name="id" value="${bestellung.id}"/>
+                                                <input type="submit" value="Bestätigen"/>
+                                            </form>
+                                        </#if>
+                                    </div>
+                                    <div class="stornieren">
+                                        <#if bestellung.storniert>
+                                            Storniert
+                                        <#else>
+                                            <form action="auswertung/bestellung/stornieren" method="post" class="stornieren">
+                                                <input type="hidden" name="id" value="${bestellung.id}"/>
+                                                <input type="submit" value="Stornieren"/>
+                                            </form>
+                                        </#if>
+                                    </div>
                                 </div>
                             </li>
                         </#list>

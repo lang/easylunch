@@ -6,6 +6,10 @@ public class AuswertungItem {
 
     private Speise speise;
     private List<Bestellung> bestellungen;
+    /**
+     * Count of bestellungen that are not storniert.
+     */
+    private Integer count;
     private Integer lagerdiff;
 
     public void setSpeise(Speise speise) {
@@ -22,6 +26,14 @@ public class AuswertungItem {
     
     public List<Bestellung> getBestellungen() {
         return bestellungen;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Integer getCount() {
+        return count;
     }
     
     public void setLagerdiff(Integer lagerdiff) {
