@@ -8,6 +8,9 @@
             <li>
                 <a href="<@app_url '/wui/bestellung/bestaetigen'/>">Vorbestellungen</a>
             </li>
+            <li>
+                <a href="<@app_url '/wui/bestellung/historie'/>">Bestellhistorie</a>
+            </li>
         </@security.authorize>
         <@security.authorize ifAnyGranted="ROLE_MITARBEITER">
             <li>

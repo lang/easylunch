@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -167,6 +168,48 @@ public class BestellungController {
             bestellungMapper.update(bestellung);
         }
         return "redirect:/wui/bestellung/bestaetigen";
+    }
+
+    @RequestMapping(value = "bestellung/historie", method = RequestMethod.GET)
+    public String historie(Model model,
+                           @RequestParam(value = "ym", required = false) String ym) {
+        Long benutzerId = benutzerService.currentBenutzer().getId();
+        Calendar cal = applicationTimeService.applicationTime();
+        cal.clear();
+        if(ym == null) {
+            Calendar now = applicationTimeService.applicationTime();
+            cal.set(Calendar.YEAR, now.get(Calendar.YEAR));
+            cal.set(Calendar.MONTH, now.get(Calendar.MONTH));
+        }
+        else {
+            String[] parts = ym.split("-");
+            cal.set(Calendar.YEAR, Integer.parseInt(parts[0]));
+            cal.set(Calendar.MONTH, Integer.parseInt(parts[1]) - 1);
+        }
+        Date begin = cal.getTime();
+        cal.add(Calendar.MONTH, 1);
+        Date end = cal.getTime();
+        Calendar now = applicationTimeService.applicationTime();
+        if(end.getTime() > now.getTimeInMillis()) {
+            end = now.getTime();
+        }
+        List<Bestellung> bestellungen =
+            bestellungMapper.findAllByBenutzerAndDateRange(benutzerId, begin, end);
+        BigDecimal sum = BigDecimal.ZERO;
+        for(Bestellung bestellung : bestellungen) {
+            sum = sum.add(bestellung.getAusgabepreis());
+        }
+        List<Date> monthOptions = new ArrayList<Date>(12);
+        cal = applicationTimeService.applicationTime();
+        for(int i = 0; i < 12; i++) {
+            monthOptions.add(cal.getTime());
+            cal.add(Calendar.MONTH, -1);
+        }
+        model.addAttribute("month", begin);
+        model.addAttribute("bestellungen", setSpeisen(bestellungen));
+        model.addAttribute("sum", sum);
+        model.addAttribute("monthOptions", monthOptions);
+        return "bestellung/historie";
     }
 
     private List<Bestellung> setSpeisen(List<Bestellung> bestellungen) {

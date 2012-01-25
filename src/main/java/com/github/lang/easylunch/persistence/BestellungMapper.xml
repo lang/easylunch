@@ -20,6 +20,14 @@
                  order by konsumationszeitpunkt, ausgabepreis
     </select>
 
+    <select id="findAllByBenutzerAndDateRange" parameterType="map" resultType="Bestellung">
+        select * from bestellung
+                 where benutzer_id = #{benutzerId}
+                       and konsumationszeitpunkt &gt;= #{begin}
+                       and konsumationszeitpunkt &lt; #{end}
+                 order by konsumationszeitpunkt, ausgabepreis
+    </select>
+
     <insert id="save" parameterType="Bestellung" useGeneratedKeys="true" keyProperty="id">
         insert into bestellung (konsumationszeitpunkt, ausgabezeitpunkt,
                                 ausgabepreis, storniert, bestaetigt, benutzer_id, speise_id)

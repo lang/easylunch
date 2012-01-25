@@ -28,4 +28,9 @@ public interface BestellungMapper {
             @Param("begin") Date begin,
             @Param("end") Date end);
 
+    List<Bestellung> findAllByBenutzerAndDateRange(
+            @Param("benutzerId") Long benutzerId,
+            @Param("begin") Date begin,
+            @Param("end") Date end);
+
 }
