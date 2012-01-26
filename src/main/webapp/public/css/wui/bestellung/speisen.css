@@ -70,8 +70,18 @@ h4 {
 #art_options li {
     list-style-type: none;
     display: inline;
+    margin-right: 25px;
 }
 
 #active_art_option {
     font-weight: bold;
+}
+
+#art_options a {
+    font-size: 125%;
+}
+
+#art_options {
+    margin-top: 15px;
+    margin-bottom:20px;
 }

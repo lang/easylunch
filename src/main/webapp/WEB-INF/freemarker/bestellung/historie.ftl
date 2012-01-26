@@ -13,10 +13,10 @@
                     </option>
                 </#list>
             </select>
-            <input type="submit" value="Anzeigen"/>
+            <input type="submit" class="btn" value="Anzeigen"/>
         </form>
 
-        <h1>${month?string('MMMM yyyy')}</h1>
+        <h1 id="month">${month?string('MMMM yyyy')}</h1>
 
         <table>
             <#list bestellungen as bestellung>
@@ -27,7 +27,7 @@
                 </tr>
             </#list>
         </table>
-        <p>
+        <p id="summe">
             Summe: ${sum?string.currency}
         </p>
 

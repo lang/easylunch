@@ -60,3 +60,10 @@
     display: inline-block;
     width: 90px;
 }
+#druckansicht {
+    font-size:130%;
+    
+}
+#items {
+    margin-top: 20px;
+}

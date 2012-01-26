@@ -315,3 +315,11 @@ checkbox {
 .standard_form_item .errors {
 	border: 1px solid red;
 }
+#month {
+    text-align: center;
+    margin: 20px 0 30px 0;
+}
+#summe {
+    text-align:right;
+    margin-right:105px;
+}

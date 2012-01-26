@@ -6,9 +6,12 @@
 
     <@page_main>
 
-        <a href="auswertung/print">Druckansicht</a>
+        
 
+    <a id="druckansicht" href="auswertung/print">Druckansicht</a>
+    <div id="items">
         <@print_items auswertungItems/>
+    </div>
 
     </@page_main>
 

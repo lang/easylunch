@@ -37,8 +37,8 @@
                                             Bestätigt
                                         <#elseif !bestellung.storniert>
                                             <form action="auswertung/bestellung/bestaetigen" method="post" class="bestaetigen">
-                                                <input type="hidden" name="id" value="${bestellung.id}"/>
-                                                <input type="submit" value="Bestätigen"/>
+                                                <input type="hidden"  name="id" value="${bestellung.id}"/>
+                                                <input type="submit" class="btn" value="Bestätigen"/>
                                             </form>
                                         </#if>
                                     </div>
@@ -48,7 +48,7 @@
                                         <#else>
                                             <form action="auswertung/bestellung/stornieren" method="post" class="stornieren">
                                                 <input type="hidden" name="id" value="${bestellung.id}"/>
-                                                <input type="submit" value="Stornieren"/>
+                                                <input type="submit" class="btn" value="Stornieren"/>
                                             </form>
                                         </#if>
                                     </div>
