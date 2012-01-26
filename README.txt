@@ -66,6 +66,12 @@ Startseite angezeigt werden.
 
 Mit CTRL+C kann der Server gestoppt werden.
 
+Server im Hintergrund starten, so dass er weiter läuft wenn die
+Konsole geschlossen wird, und Standard- und Standard-Error-Ausgabe
+in e.log geschrieben wird:
+
+    $ nohup mvn jetty:run > e.log &
+
 == Dokumentation
 
 Webframework:

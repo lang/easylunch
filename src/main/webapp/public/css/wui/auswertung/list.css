@@ -3,6 +3,9 @@
     margin-bottom: 5px;
     width: 800px;
 }
+.auswertung_head {
+    font-weight: bold;
+}
 .auswertung_item form {
     margin: 0;
     padding: 0;

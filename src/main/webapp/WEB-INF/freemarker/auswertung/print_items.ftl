@@ -1,5 +1,19 @@
 <#escape x as x?html>
 <#macro print_items items include_bestellungen=true>
+    <div class="auswertung_item auswertung_head">
+        <div class="speise_name">
+            Speise
+        </div>
+        <div class="bestellmenge">
+            Best.Menge
+        </div>
+        <div class="lagerstand">
+            Lagerst.
+        </div>
+        <div class="lagerdiff">
+            Diff.
+        </div>
+    </div>
     <#list auswertungItems as item>
         <div class="auswertung_item">
             <div class="speise_name">
