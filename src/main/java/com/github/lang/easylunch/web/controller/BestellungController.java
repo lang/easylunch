@@ -104,7 +104,10 @@ public class BestellungController {
         }
 
         List<String> dateOptions = new ArrayList<String>(14);
-        Calendar cal = Calendar.getInstance();
+        Calendar cal = applicationTimeService.applicationTime();
+        if(cal.get(Calendar.HOUR_OF_DAY) >= 9) {
+            cal.add(Calendar.DAY_OF_MONTH, 1);
+        }
         for(int i = 0; i < 14; i++) {
             dateOptions.add(DATE_FORMAT.format(cal.getTime()));
             cal.add(Calendar.DAY_OF_MONTH, 1);
