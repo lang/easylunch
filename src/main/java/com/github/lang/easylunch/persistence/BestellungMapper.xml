@@ -25,6 +25,7 @@
                  where benutzer_id = #{benutzerId}
                        and konsumationszeitpunkt &gt;= #{begin}
                        and konsumationszeitpunkt &lt; #{end}
+                       and not storniert
                  order by konsumationszeitpunkt, ausgabepreis
     </select>
 

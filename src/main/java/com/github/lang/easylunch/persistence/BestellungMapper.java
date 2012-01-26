@@ -28,6 +28,9 @@ public interface BestellungMapper {
             @Param("begin") Date begin,
             @Param("end") Date end);
 
+    /**
+     * Doesn't include bestellungen where storniert is true.
+     */
     List<Bestellung> findAllByBenutzerAndDateRange(
             @Param("benutzerId") Long benutzerId,
             @Param("begin") Date begin,
