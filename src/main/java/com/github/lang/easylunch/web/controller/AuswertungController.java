@@ -44,8 +44,7 @@ public class AuswertungController {
     @RequestMapping(value = "auswertung/bestellung/bestaetigen", method = RequestMethod.POST)
     public String auswertungBestellungBestaetigen(@RequestParam("id") Long id) {
         Bestellung bestellung = bestellungMapper.findById(id);
-        bestellung.setBestaetigt(true);
-        bestellungMapper.update(bestellung);
+        auswertungService.bestaetigen(bestellung);
         return "redirect:/wui/auswertung";
     }
 

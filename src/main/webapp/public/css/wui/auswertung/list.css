@@ -41,6 +41,14 @@
 .bestellungen ul li {
     position: relative;
     min-height: 25px;
+    list-style-type: circle;
+}
+.bestellungen ul li.bestaetigt {
+    list-style-type: disc;
+}
+.bestellungen ul li.storniert {
+    list-style-type: none;
+    color: gray;
 }
 .konsumationszeitpunkt {
     display: inline-block;

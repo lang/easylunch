@@ -32,7 +32,7 @@
                 <div class="bestellungen">
                     <ul>
                         <#list item.bestellungen as bestellung>
-                            <li>
+                            <li class="<#if bestellung.storniert>storniert</#if> <#if bestellung.bestaetigt>bestaetigt</#if>">
                                 <div class="konsumationszeitpunkt">
                                     ${bestellung.konsumationszeitpunkt?string("HH:mm")}
                                 </div>
@@ -49,7 +49,7 @@
                                     <div class="bestaetigen">
                                         <#if bestellung.bestaetigt>
                                             Bestätigt
-                                        <#elseif !bestellung.storniert>
+                                        <#elseif item.bestaetigenPossible && !bestellung.storniert>
                                             <form action="auswertung/bestellung/bestaetigen" method="post" class="bestaetigen">
                                                 <input type="hidden"  name="id" value="${bestellung.id}"/>
                                                 <input type="submit" class="btn" value="Bestätigen"/>

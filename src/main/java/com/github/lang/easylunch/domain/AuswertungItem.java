@@ -6,6 +6,7 @@ public class AuswertungItem {
 
     private Speise speise;
     private List<Bestellung> bestellungen;
+    private boolean bestaetigenPossible;
     /**
      * Count of bestellungen that are not storniert.
      */
@@ -42,6 +43,14 @@ public class AuswertungItem {
 
     public Integer getLagerdiff() {
         return lagerdiff;
+    }
+
+    public void setBestaetigenPossible(boolean bestaetigenPossible) {
+        this.bestaetigenPossible = bestaetigenPossible;
+    }
+
+    public boolean getBestaetigenPossible() {
+        return bestaetigenPossible;
     }
 
 }
