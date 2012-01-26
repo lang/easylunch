@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.lang.easylunch.domain.Bestellung;
 import com.github.lang.easylunch.persistence.BestellungMapper;
 import com.github.lang.easylunch.service.AuswertungService;
+import com.github.lang.easylunch.service.ApplicationTimeService;
 
 @Controller
 public class AuswertungController {
@@ -23,8 +24,13 @@ public class AuswertungController {
     @Autowired
     private AuswertungService auswertungService;
 
+    @Autowired
+    private ApplicationTimeService applicationTimeService;
+
     @RequestMapping(value = "auswertung", method = RequestMethod.GET)
     public String auswertungGet(Model model) {
+        Calendar now = applicationTimeService.applicationTime();
+        model.addAttribute("date", now.getTime());
         model.addAttribute("auswertungItems", auswertungService.auswertung());
         return "auswertung/list";
     }

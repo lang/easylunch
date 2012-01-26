@@ -6,6 +6,10 @@
 
     <@page_main>
 
+        <h1>
+            Bestellungsauswertung ${date?string("EEEE, dd.MM.yyyy HH:mm")}
+        </h1>
+
         <@print_items auswertungItems false/>
 
     </@page_main>
