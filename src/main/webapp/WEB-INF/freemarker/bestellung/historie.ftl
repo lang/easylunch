@@ -1,6 +1,5 @@
 <#escape x as x?html>
 <@standard_page>
-
     <@page_css "bestellung/historie.css"/>
 
     <@page_main>
