@@ -140,6 +140,7 @@
         <sec:intercept-url pattern="/favicon.ico" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <sec:intercept-url pattern="/wui/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <sec:intercept-url pattern="/public/**" filters="none"/>
+        <sec:intercept-url pattern="/wui/speise/bild*" access="ROLE_GAST,ROLE_MITARBEITER" />
         <sec:intercept-url pattern="/wui/speise/**" access="ROLE_MITARBEITER" />
         <sec:intercept-url pattern="/wui/auswertung/**" access="ROLE_MITARBEITER" />
         <sec:intercept-url pattern="/wui/benutzer/**" access="ROLE_VERWALTUNG" />
