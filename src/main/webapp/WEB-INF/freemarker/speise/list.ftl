@@ -17,7 +17,7 @@
                     </#if>
                 </div>
                 <div class="name">
-                    <a href="<@app_url '/wui/speise/show?id=${speise.id}'/>">
+                    <a href="<@app_url '/wui/speise/edit?id=${speise.id}'/>">
                         ${speise.name}
                     </a>
                 </div>
