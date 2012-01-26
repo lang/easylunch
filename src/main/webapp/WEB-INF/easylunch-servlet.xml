@@ -131,6 +131,13 @@
 
     <sec:http auto-config='true'>
         <sec:form-login login-page="/wui/login" default-target-url="/wui/home"/>
+        <!--
+             It seems that firefox is trying to request /favicon.ico
+             first, which would trigger login without this rule.
+             And then the login process would redirect to /favicon.ico,
+             and that's bad, of course.
+         -->
+        <sec:intercept-url pattern="/favicon.ico" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <sec:intercept-url pattern="/wui/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <sec:intercept-url pattern="/public/**" filters="none"/>
         <sec:intercept-url pattern="/wui/speise/**" access="ROLE_MITARBEITER" />
